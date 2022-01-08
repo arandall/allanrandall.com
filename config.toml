@@ -1,0 +1,26 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = "anatole"
+
+[params]
+title = "Allan Randall"
+author = "Allan Randall"
+description = "Hi there! I'm a software engineer living in Melbourne, Australia."
+profilePicture = "https://www.gravatar.com/avatar/e03c396094883ef16085c6c65bd33505?s=240"
+
+singleDateFormat = "Mon, 2 Jan, 2006"
+indexDateFormat = "Mon, 2 Jan, 2006"
+listDateFormat = "2 Jan"
+
+contentratio = 0.8
+
+[[params.socialIcons]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/allanau/"
+
+[[params.socialIcons]]
+icon = "fab fa-github"
+title = "Github"
+url = "https://github.com/arandall"
