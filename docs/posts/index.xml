@@ -8,13 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Jan 2022 16:55:07 +1100</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
-      <link>http://example.org/posts/my-first-post/</link>
+      <title>Finding a Celebrate Look Alike with OpenCV</title>
+      <link>http://example.org/posts/doppel/</link>
       <pubDate>Sat, 08 Jan 2022 16:55:07 +1100</pubDate>
       
-      <guid>http://example.org/posts/my-first-post/</guid>
+      <guid>http://example.org/posts/doppel/</guid>
       
-        <description>Hello there this is a test.</description>
+        <description>This post explains my approach to solving the Computer Vision 2 Find Celebrity Look-Alike project.
+ Your Task
+In this project, we will build a Fun Application - We will use the Face Embeddings to find a doppelganger or look-alike to a given person. Specifically, we will give you images of two persons and a celebrity dataset. Your task will be to find their celebrity look-alike.
+&amp;ndash; Computer Vision 2 / Project 2: DoppelGanger - Find Celebrity Look-Alike</description>
       
     </item>
     
