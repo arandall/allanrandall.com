@@ -2,17 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/posts/doppel/</loc>
+    <loc>https://allanrandall.com/</loc>
     <lastmod>2022-01-08T16:55:07+11:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>https://allanrandall.com/posts/doppel/</loc>
     <lastmod>2022-01-08T16:55:07+11:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/</loc>
+    <loc>https://allanrandall.com/tags/opencv/</loc>
     <lastmod>2022-01-08T16:55:07+11:00</lastmod>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://allanrandall.com/posts/</loc>
+    <lastmod>2022-01-08T16:55:07+11:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://allanrandall.com/tags/</loc>
+    <lastmod>2022-01-08T16:55:07+11:00</lastmod>
+  </url><url>
+    <loc>https://allanrandall.com/categories/</loc>
   </url>
 </urlset>

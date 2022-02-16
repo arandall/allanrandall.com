@@ -1,8 +1,12 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = 'https://allanrandall.com/'
+languageCode = 'en'
+DefaultContentLanguage = "en"
+title = "Allan Randall"
+
 theme = "anatole"
 publishDir = "docs"
+
+enableRobotsTXT = true
 
 [params]
 title = "Allan Randall"
@@ -25,3 +29,7 @@ url = "https://www.linkedin.com/in/allanau/"
 icon = "fab fa-github"
 title = "Github"
 url = "https://github.com/arandall"
+
+[author]
+  name = "Allan Randall"
+  location = "Melbourne"

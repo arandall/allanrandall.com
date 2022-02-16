@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Allan Randall</title>
-    <link>https://allanrandall.com/</link>
-    <description>Recent content on Allan Randall</description>
+    <title>opencv on Allan Randall</title>
+    <link>https://allanrandall.com/tags/opencv/</link>
+    <description>Recent content in opencv on Allan Randall</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 Jan 2022 16:55:07 +1100</lastBuildDate><atom:link href="https://allanrandall.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jan 2022 16:55:07 +1100</lastBuildDate><atom:link href="https://allanrandall.com/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Finding a Celebrate Look Alike with OpenCV</title>
       <link>https://allanrandall.com/posts/doppel/</link>

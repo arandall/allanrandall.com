@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://example.org/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on Allan Randall</title>
+    <link>https://allanrandall.com/posts/</link>
+    <description>Recent content in Posts on Allan Randall</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 08 Jan 2022 16:55:07 +1100</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Sat, 08 Jan 2022 16:55:07 +1100</lastBuildDate><atom:link href="https://allanrandall.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Finding a Celebrate Look Alike with OpenCV</title>
-      <link>http://example.org/posts/doppel/</link>
+      <link>https://allanrandall.com/posts/doppel/</link>
       <pubDate>Sat, 08 Jan 2022 16:55:07 +1100</pubDate>
       
-      <guid>http://example.org/posts/doppel/</guid>
+      <guid>https://allanrandall.com/posts/doppel/</guid>
       
-        <description>This post explains my approach to solving the Computer Vision 2 Find Celebrity Look-Alike project.
- Your Task
-In this project, we will build a Fun Application - We will use the Face Embeddings to find a doppelganger or look-alike to a given person. Specifically, we will give you images of two persons and a celebrity dataset. Your task will be to find their celebrity look-alike.
-&amp;ndash; Computer Vision 2 / Project 2: DoppelGanger - Find Celebrity Look-Alike</description>
+        <description>Explains my approach to solving the &lt;a href=&#34;https://opencv.org/course-computer-vision-two/&#34;&gt;Computer Vision 2&lt;/a&gt; Find Celebrity Look-Alike project.</description>
       
     </item>
     

@@ -1,7 +1,10 @@
 ---
-title: "Finding a Celebrate Look Alike with OpenCV"
+title: Finding a Celebrate Look Alike with OpenCV
+summary: Explains my approach to solving the [Computer Vision 2](https://opencv.org/course-computer-vision-two/) Find Celebrity Look-Alike project.
 date: 2022-01-08T16:55:07+11:00
 draft: false
+tags:
+    - opencv
 ---
 
 This post explains my approach to solving the [Computer Vision 2](https://opencv.org/course-computer-vision-two/) Find Celebrity Look-Alike project.
