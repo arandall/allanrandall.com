@@ -6,9 +6,9 @@
 ><head>
   <title>
     
-      
+      Allan Randall
         |
-        A new page
+        Detecting COVID-19 and Pneumonia Using Transfer Learning
 
 
       
@@ -22,7 +22,7 @@
   <meta
     name="description"
     content="
-      This should really work
+      Hi there! I&#39;m a software engineer living in Melbourne, Australia.
 
 
     "
@@ -89,8 +89,8 @@
 
   
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="A new page"/>
-<meta name="twitter:description" content="This should really work"/>
+<meta name="twitter:title" content="Detecting COVID-19 and Pneumonia Using Transfer Learning"/>
+<meta name="twitter:description" content="How I built a model to detect COVID-19 and Pneumonia with &gt;97% accuracy."/>
 
 
 
@@ -106,11 +106,15 @@
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "articleSection": "posts",
-        "name": "A new page",
-        "headline": "A new page",
+        "name": "Detecting COVID-19 and Pneumonia Using Transfer Learning",
+        "headline": "Detecting COVID-19 and Pneumonia Using Transfer Learning",
         "alternativeHeadline": "",
         "description": "
-      This should really work
+      
+        How I built a model to detect COVID-19 and Pneumonia with \u0026gt;97% accuracy.
+
+
+      
 
 
     ",
@@ -122,27 +126,27 @@
         },
         "author" : {
             "@type": "Person",
-            "name": ""
+            "name": "Allan Randall"
         },
         "creator" : {
             "@type": "Person",
-            "name": ""
+            "name": "Allan Randall"
         },
         "accountablePerson" : {
             "@type": "Person",
-            "name": ""
+            "name": "Allan Randall"
         },
         "copyrightHolder" : {
             "@type": "Person",
-            "name": ""
+            "name": "Allan Randall"
         },
-        "copyrightYear" : "0001",
-        "dateCreated": "0001-01-01T00:00:00.00Z",
-        "datePublished": "0001-01-01T00:00:00.00Z",
-        "dateModified": "0001-01-01T00:00:00.00Z",
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-02-23T20:38:00.00Z",
+        "datePublished": "2022-02-23T20:38:00.00Z",
+        "dateModified": "2022-02-23T20:38:00.00Z",
         "publisher":{
             "@type":"Organization",
-            "name":  null ,
+            "name": "Allan Randall",
             "url": "https://allanrandall.com/",
             "logo": {
                 "@type": "ImageObject",
@@ -157,9 +161,13 @@
 
     ,
         "url" : "https:\/\/allanrandall.com\/posts\/covid\/",
-        "wordCount" : "0",
+        "wordCount" : "1397",
         "genre" : [ ],
-        "keywords" : [ ]
+        "keywords" : [ 
+      
+      "opencv"
+
+    ]
     }
   </script>
 
@@ -239,7 +247,7 @@
       <li class="footer__item">
         &copy;
         
-          
+          Allan Randall
           2022
 
 
@@ -269,12 +277,185 @@
     <div class="post-content">
       
       <div class="post-title">
-        <h1>A new page</h1>
+        <h1>Detecting COVID-19 and Pneumonia Using Transfer Learning</h1>
         
-      </div></div>
+      </div><p>This post is an explanation on how I derived my solution to Project 3: Train and Deploy a Radiology AI from <a href="https://opencv.org/course-computer-vision-two/">Computer Vision 2</a>.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Given a pre-labeled dataset of images train a model that can predict the following with &gt;95% accuracy.</p>
+<ul>
+<li>Normal</li>
+<li>Pneumonia</li>
+<li>COVID19</li>
+</ul>
+<h2 id="initial-changes-made-to-radiologyai-notebook">Initial changes made to RadiologyAI notebook</h2>
+<p>The provided notebook required a number of changes before I was able to move to defining a trainable model. The main reason for this was the original notebook was a binary classification problem detecting lungs that were either normal or suffering from pneumonia.</p>
+<p>The changes required to also include COVID-19 were:</p>
+<ol>
+<li>Updating the download URL to use the Dropbox link provided.</li>
+<li>Updating the <code>/content/chest_xray</code> path to <code>/content/Dataset</code></li>
+<li>Changing the Last Dense layer from 2 units to 3 as the dataset provided is 3 classes (not the original 2)</li>
+</ol>
+<p>After these changes the notebook sprung to life returning an unimpressive .3281 val_accuracy.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pretrained_model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>applications<span style="color:#f92672">.</span>c(weights <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;imagenet&#39;</span>,
+                                                   classes <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>,
+                                                   input_shape <span style="color:#f92672">=</span> (<span style="color:#ae81ff">224</span>, <span style="color:#ae81ff">224</span>, <span style="color:#ae81ff">3</span>),
+                                                   include_top <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>,
+                                                   pooling <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;max&#39;</span>)
+predictions <span style="color:#f92672">=</span> Dense(<span style="color:#ae81ff">3</span>, activation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;softmax&#39;</span>)(pretrained_model<span style="color:#f92672">.</span>output)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Epoch 1/5
+177/177 [==============================] - 149s 821ms/step - loss: 0.6929 - accuracy: 0.3419 - val_loss: 0.6931 - val_accuracy: 0.3263
+Epoch 2/5
+177/177 [==============================] - 143s 806ms/step - loss: 0.6928 - accuracy: 0.3499 - val_loss: 0.6928 - val_accuracy: 0.3639
+Epoch 3/5
+177/177 [==============================] - 142s 802ms/step - loss: 0.6928 - accuracy: 0.3400 - val_loss: 0.6929 - val_accuracy: 0.3372
+Epoch 4/5
+177/177 [==============================] - 142s 800ms/step - loss: 0.6929 - accuracy: 0.3446 - val_loss: 0.6930 - val_accuracy: 0.3166
+Epoch 5/5
+177/177 [==============================] - 142s 800ms/step - loss: 0.6928 - accuracy: 0.3521 - val_loss: 0.6929 - val_accuracy: 0.3281
+</code></pre></div><p><img src="mobilenet-only-normalised.png" alt="MobileNet model as is"></p>
+<h2 id="creating-a-model">Creating a Model</h2>
+<p>Using transfer learning I then set out to define a new fully connected layer with trainable parameters to get a higher degree of accuracy. The biggest question now is, what should it look like?</p>
+<p>I spend many hours trying different models, from those included in the course to suggestions from many papers. In the end I discovered a paper by the University of Valladolid<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> which had a clear suggestion. It was relatively small and simple and I thought it should be repeatable.</p>
+<p>Taking what I understood from the paper I ended up with the python code below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pretrained_model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>applications<span style="color:#f92672">.</span>EfficientNetB4(include_top <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>, 
+                                                   weights <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;imagenet&#39;</span>, 
+                                                   input_shape <span style="color:#f92672">=</span> (<span style="color:#ae81ff">224</span>, <span style="color:#ae81ff">224</span>, <span style="color:#ae81ff">3</span>), 
+                                                   pooling <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;max&#39;</span>)
+
+<span style="color:#66d9ef">for</span> layer <span style="color:#f92672">in</span> pretrained_model<span style="color:#f92672">.</span>layers:
+  layer<span style="color:#f92672">.</span>trainable <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+
+model <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>Sequential()
+model<span style="color:#f92672">.</span>add(pretrained_model)
+model<span style="color:#f92672">.</span>add(layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">128</span>, activation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;relu&#39;</span>))
+model<span style="color:#f92672">.</span>add(layers<span style="color:#f92672">.</span>Dropout(<span style="color:#ae81ff">0.3</span>))
+model<span style="color:#f92672">.</span>add(layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">64</span>, activation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;relu&#39;</span>))
+model<span style="color:#f92672">.</span>add(layers<span style="color:#f92672">.</span>Dropout(<span style="color:#ae81ff">0.3</span>))
+model<span style="color:#f92672">.</span>add(layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">32</span>, activation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;relu&#39;</span>))
+model<span style="color:#f92672">.</span>add(layers<span style="color:#f92672">.</span>Dropout(<span style="color:#ae81ff">0.3</span>))
+model<span style="color:#f92672">.</span>add(layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">3</span>, activation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;softmax&#39;</span>))
+
+<span style="color:#75715e"># Change from SGD optimizer to Adam with learning rate of .0001</span>
+model<span style="color:#f92672">.</span>compile(optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>Adam(<span style="color:#ae81ff">0.0001</span>),
+              loss <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;binary_crossentropy&#34;</span>,
+              metrics <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;accuracy&#34;</span>])
+
+history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(train_datagen,
+                    epochs <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>,
+                    steps_per_epoch <span style="color:#f92672">=</span> (len(train_datagen)),
+                    validation_data <span style="color:#f92672">=</span> val_datagen,
+                    validation_steps <span style="color:#f92672">=</span> (len(val_datagen)),
+                    shuffle <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>,
+                    callbacks <span style="color:#f92672">=</span> callback)
+</code></pre></div><p>As the course mentioned that leaning on prior work was a good starting point I was feeling rather confident until the epochs started rolling by.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Epoch 1/11
+177/177 [==============================] - 197s 951ms/step - loss: 0.7495 - accuracy: 0.3286 - val_loss: 0.6480 - val_accuracy: 0.3518 - lr: 1.0000e-04
+Epoch 2/11
+177/177 [==============================] - 161s 909ms/step - loss: 0.6584 - accuracy: 0.3327 - val_loss: 0.6482 - val_accuracy: 0.3204 - lr: 1.0000e-04
+Epoch 3/11
+177/177 [==============================] - 160s 905ms/step - loss: 0.6551 - accuracy: 0.3315 - val_loss: 0.6399 - val_accuracy: 0.3278 - lr: 1.0000e-04
+</code></pre></div><h2 id="better-accuracy">Better Accuracy</h2>
+<p>I spent a lot of time scratching my head wondering what I was doing wrong until two things hit me.</p>
+<ol>
+<li>Lungs are not symmetrical, I shouldn&rsquo;t be flipping them!</li>
+<li>The pre-trained images were trained on object classification problems maybe I need to fine tune it.</li>
+</ol>
+<h3 id="symmetry-of-the-human-body">Symmetry of the Human Body</h3>
+<p>This came to me when I was pondering what options I had left to increase accuracy.</p>
+<p>I remembered that the left lung had less space, that would be different. In search for confirmation I found a page on AppliedRadiology.com<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> showing some challenges of different parts of the body including the chest.</p>
+<blockquote>
+<p>Because the heart lies asymmetrically to the left in the thorax, determining right from left in the thorax is not a problem except in the rare case of situs inversus.</p>
+</blockquote>
+<p>To solve this was quite easy and was something I overlooked when first looking at the notebook thinking, &ldquo;lungs are symmetrical that should be ok.&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train_val_gen <span style="color:#f92672">=</span> ImageDataGenerator(zca_epsilon <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>,
+                                   horizontal_flip <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>,
+                                   rescale <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.</span><span style="color:#f92672">/</span><span style="color:#ae81ff">255</span>)        <span style="color:#75715e"># Do not change rescale</span>
+</code></pre></div><p>With this change alone the accuracy didn&rsquo;t really change suggesting something else was needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Epoch 1/11
+177/177 [==============================] - 171s 880ms/step - loss: 2.8510 - accuracy: 0.3282 - val_loss: 1.8354 - val_accuracy: 0.3278
+Epoch 2/11
+177/177 [==============================] - 151s 851ms/step - loss: 2.6794 - accuracy: 0.3307 - val_loss: 1.6513 - val_accuracy: 0.3278
+Epoch 3/11
+177/177 [==============================] - 151s 850ms/step - loss: 2.5755 - accuracy: 0.3326 - val_loss: 1.4867 - val_accuracy: 0.3278
+</code></pre></div><p>In hindsight this ended up being a distraction but did result in a slightly higher accuracy.</p>
+<h3 id="fine-tuning">Fine Tuning</h3>
+<p>When first reading though the problem I thought that I could solve it purely with transfer learning. Reading more and revisiting the course material I concluded the next logical step would be to retrain all or part of the convolutional layers.</p>
+<p>The University of Valladolid<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> paper that I had based my model on up until now retrained the EfficientNetB4 layers but when I tried to do the same by removing the following lines a <code>ResourceExhaustedError</code> occurred in Google Colab:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> layer <span style="color:#f92672">in</span> pretrained_model<span style="color:#f92672">.</span>layers:
+  layer<span style="color:#f92672">.</span>trainable <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</code></pre></div><p>Given the paper had high accuracies listed for other models I ended up landing on using the VGG19 model and retraining the last convolutional network using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> layer <span style="color:#f92672">in</span> pretrained_model<span style="color:#f92672">.</span>layers:
+  <span style="color:#66d9ef">if</span> layer<span style="color:#f92672">.</span>name <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;block5_conv1&#39;</span>:
+    <span style="color:#66d9ef">break</span>
+  layer<span style="color:#f92672">.</span>trainable <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</code></pre></div><p>The result!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Epoch 1/11
+177/177 [==============================] - 174s 973ms/step - loss: 0.3729 - accuracy: 0.7653 - val_loss: 0.1565 - val_accuracy: 0.9244
+Epoch 2/11
+177/177 [==============================] - 170s 962ms/step - loss: 0.1783 - accuracy: 0.9201 - val_loss: 0.1382 - val_accuracy: 0.9397
+Epoch 3/11
+177/177 [==============================] - 170s 960ms/step - loss: 0.1188 - accuracy: 0.9500 - val_loss: 0.1329 - val_accuracy: 0.9453
+Epoch 4/11
+177/177 [==============================] - 170s 962ms/step - loss: 0.0995 - accuracy: 0.9583 - val_loss: 0.1941 - val_accuracy: 0.9272
+Epoch 5/11
+177/177 [==============================] - 171s 967ms/step - loss: 0.0776 - accuracy: 0.9671 - val_loss: 0.1278 - val_accuracy: 0.9614
+Epoch 6/11
+177/177 [==============================] - 170s 958ms/step - loss: 0.0666 - accuracy: 0.9742 - val_loss: 0.1332 - val_accuracy: 0.9574
+Epoch 7/11
+177/177 [==============================] - 170s 959ms/step - loss: 0.0499 - accuracy: 0.9801 - val_loss: 0.1439 - val_accuracy: 0.9639
+Epoch 8/11
+177/177 [==============================] - 169s 956ms/step - loss: 0.0503 - accuracy: 0.9808 - val_loss: 0.1415 - val_accuracy: 0.9577
+Epoch 9/11
+177/177 [==============================] - 170s 958ms/step - loss: 0.0415 - accuracy: 0.9826 - val_loss: 0.1433 - val_accuracy: 0.9636
+Epoch 10/11
+177/177 [==============================] - 170s 962ms/step - loss: 0.0316 - accuracy: 0.9882 - val_loss: 0.1496 - val_accuracy: 0.9661
+Epoch 11/11
+177/177 [==============================] - 170s 960ms/step - loss: 0.0268 - accuracy: 0.9903 - val_loss: 0.1776 - val_accuracy: 0.9670
+</code></pre></div><p><img src="retrain-conv-confusion-normalised.png" alt="ncm"></p>
+<p>A massive improvement! Giving me the confidence I was on the right track. Now to consolidate all that I had learnt.</p>
+<h2 id="final-solution">Final Solution</h2>
+<p>In the end I settled on the following model parameters which produced a pretty good result.</p>
+<ul>
+<li>Using the VGG19 pretrained model</li>
+<li>Training the last convolutional</li>
+<li>Setting <code>horizontal_flip</code> to <code>False</code></li>
+<li>3 dense layers with relu activation</li>
+<li>Adam optimizer</li>
+<li>11 epochs (possibly fewer would&rsquo;ve been enough)</li>
+</ul>
+<p><img src="final-acc.png" alt="training vs validation"></p>
+<p><img src="final-normalised-confusion.png" alt="Normalized Confusion Matrix"></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I was a little concerned using 11 epochs that I was getting in the realm of overfitting to the training data however there were some benefits and val_accuracy was still declining. I suspect with some more experience training models I may be able to tune things a bit more but my biggest learnings from this project was:</p>
+<ul>
+<li>The largest accuracy happen in the early epochs, if things look bad, stop and reevaluate. There is no need to run until the end.</li>
+<li>Another pre-trained model might have performed better could&rsquo;ve run multiple to see, decided not to invest more time</li>
+</ul>
+<p>The next step would be to take my model and compare it with other pretrained models but I decided that it was time to put this problem asside and test the accuracy using the external dataset provided.</p>
+<p><img src="streamlit-result.png" alt="External Dataset Result"></p>
+<p><strong>&gt;97% Alright!</strong></p>
+<h2 id="references">References</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7836808/">Automated medical diagnosis of COVID-19 through EfficientNet convolutional neural network</a> - Gonçalo Marques,⁎ Deevyankar Agarwal, and Isabel de la Torre Díez&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://appliedradiology.com/articles/knowing-right-from-left-on-x-rays-a-way-to-minimize-errors-of-laterality">Knowing right from left on X-rays: A way to minimize errors of laterality</a> - Carl E. Fabian, MD, FACR&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
     <div class="post-footer">
       <div class="info">
         
+
+        
+          <span class="separator"><a class="tag" href="/tags/opencv/">opencv</a></span>
+
+
+
 
         
       </div>
@@ -293,7 +474,7 @@
       <li class="footer__item">
         &copy;
         
-          
+          Allan Randall
           2022
 
 

@@ -6,7 +6,18 @@
     <description>Recent content on Allan Randall</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 Jan 2022 16:55:07 +1100</lastBuildDate><atom:link href="https://allanrandall.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Feb 2022 20:38:00 +1100</lastBuildDate><atom:link href="https://allanrandall.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Detecting COVID-19 and Pneumonia Using Transfer Learning</title>
+      <link>https://allanrandall.com/posts/covid/</link>
+      <pubDate>Wed, 23 Feb 2022 20:38:00 +1100</pubDate>
+      
+      <guid>https://allanrandall.com/posts/covid/</guid>
+      
+        <description>How I built a model to detect COVID-19 and Pneumonia with &amp;gt;97% accuracy.</description>
+      
+    </item>
+    
     <item>
       <title>Finding a Celebrate Look Alike with OpenCV</title>
       <link>https://allanrandall.com/posts/doppel/</link>
