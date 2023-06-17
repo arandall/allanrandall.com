@@ -1,6 +1,6 @@
 ---
 title: Detecting COVID-19 and Pneumonia Using Transfer Learning
-summary: How I built a model to detect COVID-19 and Pneumonia with >97% accuracy.
+description: How I built a model to detect COVID-19 and Pneumonia with >97% accuracy.
 date: 2022-02-23T20:38:00+11:00
 draft: false
 tags:
