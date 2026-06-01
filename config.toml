@@ -1,5 +1,5 @@
 baseURL = 'https://allanrandall.com/'
-languageCode = 'en'
+locale = 'en'
 DefaultContentLanguage = "en"
 title = "Allan Randall"
 
@@ -7,7 +7,10 @@ theme = "anatole"
 publishDir = "docs"
 
 enableRobotsTXT = true
-googleAnalytics = "G-9BR3BLS2S8"
+
+[services]
+  [services.googleAnalytics]
+    id = "G-9BR3BLS2S8"
 
 [params]
 title = "Allan Randall"
