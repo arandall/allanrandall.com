@@ -1,0 +1,24 @@
+layouts/_partials/breadcrumb.html
+  s_33b9dee2415ca6::t_dc9d66342617f7 1-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "7660a7d5a0f6721e65a9fcc7cb8cf9f7c8ac4243",
+  "prompts": {},
+  "humans": {
+    "h_e49bc6578e470a": {
+      "author": "Allan Randall <me@allanrandall.com>"
+    }
+  },
+  "sessions": {
+    "s_33b9dee2415ca6": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "73fd13e8-4de7-468f-a9e0-a413d340797a",
+        "model": "gpt-5-mini"
+      },
+      "human_author": "Allan Randall <me@allanrandall.com>"
+    }
+  }
+}
