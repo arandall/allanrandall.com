@@ -1,0 +1,640 @@
+docs/engineering/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 18,100-105,292-299
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 32
+  s_fa24266c539e14::t_3d9ef20d629192 30,179,185-241,423
+  s_d36ae34589d918::t_396ad926cf93ba 410
+_vendor/github.com/imfing/hextra/layouts/_partials/theme-toggle.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-83
+docs/sitemap.xml
+  s_fa24266c539e14::t_3d9ef20d629192 7,10,22,43,55,58,61,66,71-72,74,77,80
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 12-13,15-16,18-19,21,24-39,45,48,51,54,57,63,65,73
+  s_d36ae34589d918::t_33394caaa7ff99 46-47,49-50,52-53,56,62,64
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/icon.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-28
+_vendor/github.com/imfing/hextra/layouts/glossary.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-26
+_vendor/github.com/imfing/hextra/layouts/_partials/scripts/medium-zoom.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-85
+_vendor/github.com/imfing/hextra/layouts/wide.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-12
+layouts/robots.txt
+  h_e49bc6578e470a 1-3
+docs/about/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 1,3,5-11,13-17,19-24,26-30,33-34,36,42,62-380,384-467,470-471
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 2,4,12,25,37-41,43-61,468-469
+_vendor/github.com/imfing/hextra/assets/js/core/page-context-menu.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-172
+docs/tags/3d-printing/index.html
+  s_d36ae34589d918::t_a64bd263b65e01 1,3,5-11,13-26,28-31,34-37,41,57,64-100,107-290,300-430,455-530,533-534
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 2,4,12,27,33,38-40,42-56,58-63,431-454,531-532
+  s_d36ae34589d918::t_33394caaa7ff99 101-106,291-299
+_vendor/github.com/imfing/hextra/assets/css/components/navbar.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-50
+_vendor/github.com/imfing/hextra/assets/css/components/code-copy.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-7
+content/projects/meross/_index.md
+  h_e49bc6578e470a 3-4,10,15,17-35,40,46,60,76,92,99
+docs/tags/arctos/index.xml
+  s_d36ae34589d918::t_33394caaa7ff99 1-256
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/hextra/hero-section.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-20
+_vendor/github.com/imfing/hextra/layouts/home.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-14
+docs/tags/opencv/index.html
+  s_fa24266c539e14::t_3d9ef20d629192 33,180,186-242
+  s_d36ae34589d918::t_33394caaa7ff99 101-106,292-299
+content/projects/arctos-robot-arm/x-axis.md
+  s_8396ca55d80bb4::t_ac8108574732dd 1-75
+docs/tags/platformio/index.html
+  s_009a23c03bc23a::t_4aefa11ffa8a00 2,4,12,27,40-42,44-62,471-472
+  s_d36ae34589d918::t_33394caaa7ff99 32-33,38-39,64,101-106,188-208,212,215,219-240,291-299,388-389,394
+  s_fa24266c539e14::t_3d9ef20d629192 1,3,5-11,13-26,28-31,34-37,43,63,65-100,107-187,209-211,213-214,216-218,241-290,300-387,390-393,395-470,473-474
+content/engineering/_index.md
+  s_d36ae34589d918::t_e3f03bbc4faacc 3
+  s_22e8b4e16afa52::t_55ab7c1bfa5606 4-7
+_vendor/github.com/imfing/hextra/i18n/nb.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/data/icons.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-312
+_vendor/github.com/imfing/hextra/layouts/list.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-18
+_vendor/github.com/imfing/hextra/layouts/_partials/google-analytics.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-2
+_vendor/github.com/imfing/hextra/layouts/_partials/navbar-link.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-88
+docs/projects/arctos-robot-arm/x-axis/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 111-342
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 2-72,610-611
+_vendor/github.com/imfing/hextra/assets/js/core/switcher-menu.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-52
+_vendor/github.com/imfing/hextra/layouts/_partials/search.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-30
+docs/tags/meross/index.html
+  s_fa24266c539e14::t_3d9ef20d629192 1,3,5-11,13-26,28-31,34-37,43,63,65-100,107-187,209-211,213-214,216-218,241-290,300-387,390-393,395-470,473-474
+  s_d36ae34589d918::t_33394caaa7ff99 32-33,38-39,64,101-106,188-208,212,215,219-240,291-299,388-389,394
+  s_009a23c03bc23a::t_4aefa11ffa8a00 2,4,12,27,40-42,44-62,471-472
+_vendor/github.com/imfing/hextra/layouts/_markup/render-blockquote-alert.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-9
+_vendor/github.com/imfing/hextra/assets/css/chroma/light.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-90
+_vendor/github.com/imfing/hextra/layouts/section.markdown.md
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-2
+_vendor/github.com/imfing/hextra/assets/css/components/archives.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-3
+_vendor/github.com/imfing/hextra/layouts/list.rss.xml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_markup/render-image.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-59
+_vendor/github.com/imfing/hextra/assets/js/core/filetree.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-15
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/hextra/feature-card.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-51
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/include.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-22
+README.md
+  h_e49bc6578e470a 4-20
+_vendor/github.com/imfing/hextra/layouts/_partials/scripts/search.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-63
+_vendor/github.com/imfing/hextra/assets/css/components/toc.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-4
+_vendor/github.com/imfing/hextra/layouts/_partials/opengraph.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-96
+docs/tags/esp8266/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 32-33,38-39,64,101-106,188-208,212,215,219-240,291-299,388-389,394
+  s_009a23c03bc23a::t_4aefa11ffa8a00 2,4,12,27,40-42,44-62,471-472
+  s_fa24266c539e14::t_3d9ef20d629192 1,3,5-11,13-26,28-31,34-37,43,63,65-100,107-187,209-211,213-214,216-218,241-290,300-387,390-393,395-470,473-474
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/hextra/hero-badge.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-24
+_vendor/github.com/imfing/hextra/assets/css/variables.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-35
+_vendor/github.com/imfing/hextra/layouts/_partials/components/analytics/umami.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-57
+_vendor/github.com/imfing/hextra/layouts/blog/list.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-39
+_vendor/github.com/imfing/hextra/layouts/hextra-home.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-10
+_vendor/github.com/imfing/hextra/assets/js/core/sidebar.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-37
+_vendor/github.com/imfing/hextra/assets/json/search-data.json
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-38
+_vendor/github.com/imfing/hextra/i18n/vi.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/package.json
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-20
+_vendor/github.com/imfing/hextra/static/favicon.svg
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-13
+_vendor/github.com/imfing/hextra/assets/css/typography.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-147
+content/designs/_index.md
+  s_22e8b4e16afa52::t_55ab7c1bfa5606 4-5
+  s_d36ae34589d918::t_e3f03bbc4faacc 3
+docs/projects/arctos-robot-arm/y-axis/index.html
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 2-72,583-584
+  s_d36ae34589d918::t_33394caaa7ff99 111-336
+_vendor/github.com/imfing/hextra/layouts/_partials/scripts/mathjax.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-20
+docs/notes/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 18,100-105,293-301
+  s_fa24266c539e14::t_3d9ef20d629192 30,179,185-241,403-405
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 32
+  s_d36ae34589d918::t_396ad926cf93ba 392
+_vendor/github.com/imfing/hextra/assets/css/highlight.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-53
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/term.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-33
+_vendor/github.com/imfing/hextra/layouts/_partials/shortcodes/callout.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-28
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/filetree/container.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-13
+content/projects/_index.md
+  s_22e8b4e16afa52::t_55ab7c1bfa5606 4-7
+  s_d36ae34589d918::t_e3f03bbc4faacc 3
+layouts/shortcodes/recent-pages.html
+  s_d36ae34589d918::t_9ff96716e45e9b 1-31
+_vendor/github.com/imfing/hextra/layouts/_partials/shortcodes/badge.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-38
+docs/tags/robotics/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 1-32,34-430,455-534
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 33,431-454
+_vendor/github.com/imfing/hextra/i18n/he.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/archives.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-38
+docs/projects/meross/index.xml
+  s_d36ae34589d918::t_33394caaa7ff99 1-19
+content/engineering/doppelganger-opencv/index.md
+  s_fa25ba8d3f6f4b::t_e9f0d7d6f0a935 72
+docs/designs/index.html
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 12,32
+  s_d36ae34589d918::t_33394caaa7ff99 18,29,35,100-105,292-299
+  s_fa24266c539e14::t_3d9ef20d629192 30,179,185-241,403-405
+  s_d36ae34589d918::t_396ad926cf93ba 392
+_vendor/github.com/imfing/hextra/layouts/llms.txt
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-35
+docs/tags/arctos/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 1-510
+_vendor/github.com/imfing/hextra/layouts/_partials/banner.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-19
+_vendor/github.com/imfing/hextra/layouts/_partials/shortcodes/card.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-70
+_vendor/github.com/imfing/hextra/assets/css/components/search.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-38
+_vendor/github.com/imfing/hextra/i18n/ru.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_partials/components/analytics/goat-counter.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-17
+_vendor/github.com/imfing/hextra/assets/css/styles.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-91
+_vendor/github.com/imfing/hextra/assets/js/core/task-list.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-15
+_vendor/github.com/imfing/hextra/assets/js/core/menu.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-84
+_vendor/github.com/imfing/hextra/i18n/fr.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+content/about.md
+  s_d36ae34589d918::t_8723c15ce50009 1-2,4-6,8,13-16
+  s_d36ae34589d918::t_5804138a6dd065 3
+  h_e49bc6578e470a 12
+  s_d36ae34589d918::t_f9185dfdfe601b 7,9
+  s_d36ae34589d918::t_10cebd58e0b972 11
+  s_d36ae34589d918::t_a7cdb3057a626e 10
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/template-url.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-18
+_vendor/github.com/imfing/hextra/hugo.toml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-16
+_vendor/github.com/imfing/hextra/layouts/_partials/scripts/katex.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-92
+docs/engineering/radiologyai-covid/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 111-116,347-354
+  s_fa24266c539e14::t_3d9ef20d629192 34,41,190,196-252,699
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 533-538,552-555,574-594,613-615,633-636,651-653
+docs/projects/meross-provisioner/index.html
+  s_009a23c03bc23a::t_4aefa11ffa8a00 2,4,12,25,41-43,537-538
+  s_fa24266c539e14::t_3d9ef20d629192 1,3,5-11,13-24,26-36,40,44-536,539-540
+  s_d36ae34589d918::t_396ad926cf93ba 37-39
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/page-width-override.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-10
+_vendor/github.com/imfing/hextra/assets/js/core/theme.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-112
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/card.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-72
+_vendor/github.com/imfing/hextra/layouts/_partials/toc.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-91
+_vendor/github.com/imfing/hextra/assets/css/components/steps.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-22
+docs/robots.txt
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 2-3
+_vendor/github.com/imfing/hextra/layouts/404.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-40
+_vendor/github.com/imfing/hextra/assets/css/components/scrollbar.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-21
+docs/categories/index.html
+  s_fa24266c539e14::t_3d9ef20d629192 178,184-240
+  s_d36ae34589d918::t_33394caaa7ff99 99-104,290-297
+_vendor/github.com/imfing/hextra/i18n/nl.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/hugo-compat/language-direction.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-15
+_vendor/github.com/imfing/hextra/layouts/_partials/components/last-updated.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-20
+_vendor/github.com/imfing/hextra/i18n/pt.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/hextra/hero-container.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-56
+_vendor/github.com/imfing/hextra/assets/css/components/hextra/feature-grid.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-5
+_vendor/github.com/imfing/hextra/i18n/cs.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/i18n/de.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_partials/components/blog-pager.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-39
+_vendor/github.com/imfing/hextra/i18n/zh-cn.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/badge.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-54
+_vendor/github.com/imfing/hextra/assets/css/safelist.txt
+  s_d36ae34589d918::t_a6fc8c4586cbce 1
+_vendor/github.com/imfing/hextra/layouts/_partials/navbar-title.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-16
+docs/tags/meross/index.xml
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 106-110,125
+  s_fa24266c539e14::t_3d9ef20d629192 1-3,5-7,9,11-19,22,24-26,41-42,45,48-61,64-102,105,111-124,126-136,139-143,146-155
+  s_d36ae34589d918::t_33394caaa7ff99 8,21,27-40,43-44,46-47,62-63,103-104,137-138,144-145
+  s_009a23c03bc23a::t_4aefa11ffa8a00 4,10,20,23
+docs/engineering/doppelganger-opencv/index.html
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 552-556,573-576,591-592,613-614,630,645-649,665-668,683-687,703-705,720-721,738-742,757-761,776-777,802-806
+  s_fa24266c539e14::t_3d9ef20d629192 34,41,190,196-252,824
+  s_d36ae34589d918::t_33394caaa7ff99 111-116,341-348
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/sort-pages.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-32
+_vendor/github.com/imfing/hextra/i18n/es.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/page-description.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-11
+_vendor/github.com/imfing/hextra/static/images/logo-dark.svg
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-3
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/icon.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-15
+_vendor/github.com/imfing/hextra/layouts/_partials/navbar.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-59
+_vendor/github.com/imfing/hextra/layouts/docs/list.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-25
+hugo.yaml
+  s_fa25ba8d3f6f4b::t_0b2ee9d6362f8d 76-84
+  s_d36ae34589d918::t_764d34cd7f1680 35-36,38-39,43
+_vendor/github.com/imfing/hextra/assets/js/core/tabs.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-102
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/hugo-compat/language-locale.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-15
+_vendor/github.com/imfing/hextra/assets/js/core/back-to-top.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-26
+docs/tags/iot/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 32,38-39,64,101-106,188-208,212,215,219-240,291-299,388-389,394
+  s_009a23c03bc23a::t_4aefa11ffa8a00 2,4,12,27,40-42,44-62,483-484
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 33,395-406
+  s_fa24266c539e14::t_3d9ef20d629192 1,3,5-11,13-26,28-31,34-37,43,63,65-100,107-187,209-211,213-214,216-218,241-290,300-387,390-393,407-482,485-486
+docs/tags/python/index.xml
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 46-51,65-68,87-107,126-128,146-149,164-166,249-253,270-273,288-289,310-311,327,342-346,362-365,380-384,400-402,417-418,435-439,454-458,473-474,499-503,609-613,628
+  s_d36ae34589d918::t_33394caaa7ff99 523-608,614-627,629-656
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 657-684
+_vendor/github.com/imfing/hextra/layouts/_partials/scripts/core.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-10
+docs/tags/platformio/index.xml
+  s_fa24266c539e14::t_3d9ef20d629192 1-3,5-7,9,11-19,22,24-26,41-42,45,48-61,64-102,105,111-124,126-136,139-143,146-155
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 106-110,125
+  s_d36ae34589d918::t_33394caaa7ff99 8,21,27-40,43-44,46-47,62-63,103-104,137-138,144-145
+  s_009a23c03bc23a::t_4aefa11ffa8a00 4,10,20,23
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/filetree/folder.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-26
+_vendor/github.com/imfing/hextra/layouts/_markup/render-blockquote-regular.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-3
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/format-date.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-3
+_vendor/github.com/imfing/hextra/i18n/it.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+docs/tags/machine-learning/index.xml
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 46-51,65-68,87-107,126-128,146-149,164-166
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 212-225
+_vendor/github.com/imfing/hextra/assets/js/core/code-copy.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-91
+_vendor/github.com/imfing/hextra/layouts/_partials/components/pager.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-53
+docs/en.search-data.json
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 1
+docs/tags/iot/index.xml
+  s_d36ae34589d918::t_33394caaa7ff99 8,21,27-40,43-44,46-47,62-63,103-104,137-138,144-145
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 154-167
+  s_009a23c03bc23a::t_4aefa11ffa8a00 4,10,20,23
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 106-110,125
+  s_fa24266c539e14::t_3d9ef20d629192 1-3,5-7,9,11-19,22,24-26,41-42,45,48-61,64-102,105,111-124,126-136,139-143,146-153,168-169
+_vendor/github.com/imfing/hextra/assets/js/head/theme.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-14
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/hextra/hero-subtitle.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-16
+_vendor/github.com/imfing/hextra/layouts/_partials/tags.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-7
+_vendor/github.com/imfing/hextra/assets/css/components/banner.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-12
+docs/index.html
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 13,19,30,35
+  s_d36ae34589d918::t_33394caaa7ff99 100-105,291-298
+  s_fa24266c539e14::t_3d9ef20d629192 31,179,185-241
+_vendor/github.com/imfing/hextra/i18n/ko.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_markup/render-heading.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-8
+content/projects/arctos-robot-arm/y-axis.md
+  s_8396ca55d80bb4::t_9a07be9a7cc468 1-63
+docs/llms.txt
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 22-24,27
+  s_d36ae34589d918::t_33394caaa7ff99 26
+  s_fa24266c539e14::t_3d9ef20d629192 6-7,19
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 30
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/lang-link.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-25
+_vendor/github.com/imfing/hextra/i18n/sw.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/assets/css/components/jupyter.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-17
+docs/projects/arctos-robot-arm/index.html
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 2,4,12,25,38-42,44-62,523-524
+  s_d36ae34589d918::t_33394caaa7ff99 101-106,306-314
+  s_d36ae34589d918::t_bd2049049768ba 1,3,5-11,13-24,26-37,43,63-100,107-305,315-522,525-526
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/extract-headings.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-31
+_vendor/github.com/imfing/hextra/i18n/en.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_partials/scripts/mermaid.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-79
+_vendor/github.com/imfing/hextra/layouts/wide.markdown.md
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-3
+docs/projects/arctos-robot-arm/index.xml
+  s_d36ae34589d918::t_33394caaa7ff99 1-224
+_vendor/github.com/imfing/hextra/assets/js/flexsearch.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-492
+_vendor/github.com/imfing/hextra/layouts/_partials/components/analytics/matomo.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-31
+_vendor/github.com/imfing/hextra/layouts/_partials/components/analytics/google-analytics.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-13
+_vendor/github.com/imfing/hextra/layouts/_partials/breadcrumb.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-17
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/cards.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-11
+_vendor/github.com/imfing/hextra/layouts/taxonomy.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-30
+_vendor/github.com/imfing/hextra/layouts/_markup/render-link.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-28
+_vendor/github.com/imfing/hextra/assets/css/components/sidebar.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-21
+docs/css/compiled/main.min.836d2030bbcc8d1221a64b543e97c7bb33506bf688d697ad8b39a7cd64a39c83.css
+  s_009a23c03bc23a::t_4aefa11ffa8a00 1
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/title.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-19
+_vendor/github.com/imfing/hextra/layouts/_partials/favicons.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-6
+_vendor/github.com/imfing/hextra/assets/js/core/toc-scroll.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-97
+docs/projects/arctos-robot-arm/test-prints/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 111-342
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 2-72,652-653
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/filetree/file.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-16
+content/projects/arctos-robot-arm/_index.md
+  s_8396ca55d80bb4::t_11ea029f09fbd0 1-35
+_vendor/github.com/imfing/hextra/static/site.webmanifest
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-20
+_vendor/github.com/imfing/hextra/layouts/single.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-19
+_vendor/github.com/imfing/hextra/i18n/ja.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+docs/tags/python/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 101-106,292-299
+  s_fa24266c539e14::t_3d9ef20d629192 33,180,186-242
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 419-442
+_vendor/github.com/imfing/hextra/assets/js/core/banner.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-15
+docs/tags/machine-learning/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 101-106,292-299
+  s_fa24266c539e14::t_3d9ef20d629192 33,180,186-242
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 395-406
+_vendor/github.com/imfing/hextra/layouts/_partials/components/comments.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-11
+_vendor/github.com/imfing/hextra/i18n/zh-tw.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/static/images/logo.svg
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-3
+_vendor/github.com/imfing/hextra/layouts/_partials/head.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-81
+_vendor/github.com/imfing/hextra/theme.toml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-16
+_vendor/github.com/imfing/hextra/i18n/fa.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/hextra/hero-button.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-25
+docs/tags/esp8266/index.xml
+  s_009a23c03bc23a::t_4aefa11ffa8a00 4,10,20,23
+  s_fa24266c539e14::t_3d9ef20d629192 1-3,5-7,9,11-19,22,24-26,41-42,45,48-61,64-102,105,111-124,126-136,139-143,146-155
+  s_d36ae34589d918::t_33394caaa7ff99 8,21,27-40,43-44,46-47,62-63,103-104,137-138,144-145
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 106-110,125
+content/projects/arctos-robot-arm/test-prints.md
+  h_e49bc6578e470a 1-83
+_vendor/github.com/imfing/hextra/i18n/nn.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_partials/scripts.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-20
+_vendor/github.com/imfing/hextra/i18n/uk.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/callout.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-57
+docs/projects/meross-provisioner/index.xml
+  s_fa24266c539e14::t_3d9ef20d629192 1-3,5-9,11-19
+  s_009a23c03bc23a::t_4aefa11ffa8a00 4,10
+_vendor/github.com/imfing/hextra/layouts/_partials/components/analytics/analytics.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-24
+_vendor/github.com/imfing/hextra/layouts/_partials/components/github-style-alert.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-53
+content/_index.md
+  s_d36ae34589d918::t_9132ebc4165545 9
+  s_d36ae34589d918::t_3f5f88f35dbb83 7
+  s_22e8b4e16afa52::t_e3d413cf03b74c 3
+_vendor/github.com/imfing/hextra/assets/css/components/cards.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-46
+_vendor/github.com/imfing/hextra/i18n/ro.yaml
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-43
+docs/tags/robotics/index.xml
+  s_d36ae34589d918::t_33394caaa7ff99 1-254,283-284
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 255-282
+_vendor/github.com/imfing/hextra/layouts/_markup/render-codeblock-mermaid.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-6
+_vendor/github.com/imfing/hextra/layouts/baseof.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-16
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/jupyter.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-88
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/hugo-compat/language-label.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-15
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/tabs.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-39
+_vendor/github.com/imfing/hextra/layouts/_partials/language-switch.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-58
+_vendor/github.com/imfing/hextra/layouts/_partials/components/codeblock-copy-button.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-17
+_vendor/github.com/imfing/hextra/layouts/_partials/components/page-context-menu.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-90
+_vendor/github.com/imfing/hextra/assets/css/components/badge.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-3
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/hextra/hero-headline.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-16
+_vendor/github.com/imfing/hextra/layouts/_partials/shortcodes/cards.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-6
+_vendor/github.com/imfing/hextra/layouts/term.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-33
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/file-path.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-21
+_vendor/github.com/imfing/hextra/assets/js/core/favicon.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-22
+_vendor/github.com/imfing/hextra/layouts/blog/single.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-55
+_vendor/github.com/imfing/hextra/layouts/_partials/scripts/asciinema.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-140
+_vendor/github.com/imfing/hextra/layouts/_partials/shortcodes/tabs.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-48
+_vendor/github.com/imfing/hextra/layouts/glossary.markdown.md
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-3
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/hugo-compat/sites.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-14
+docs/tags/3d-printing/index.xml
+  s_d36ae34589d918::t_33394caaa7ff99 1-254,283-284
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 255-282
+docs/projects/meross/index.html
+  s_d36ae34589d918::t_33394caaa7ff99 101-106,312-320
+  s_d36ae34589d918::t_bd2049049768ba 1,3,5-11,13-24,26-37,43,63-100,107-311,321-591,597-610,612-652,655-656
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 2,4,12,25,38-42,44-62,653-654
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 592-596,611
+_vendor/github.com/imfing/hextra/layouts/docs/single.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-25
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/hugo-compat/site-data.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-14
+_vendor/github.com/imfing/hextra/layouts/_partials/footer.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-44
+docs/tags/computer-vision/index.xml
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 521-534
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 46-51,65-68,87-107,126-128,146-149,164-166,249-253,270-273,288-289,310-311,327,342-346,362-365,380-384,400-402,417-418,435-439,454-458,473-474,499-503
+_vendor/github.com/imfing/hextra/assets/js/core/lang.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-103
+docs/tags/opencv/index.xml
+  s_fa25ba8d3f6f4b::t_e0f7bb76c8793e 55-59,76-79,94-95,116-117,133,148-152,168-171,186-190,206-208,223-224,241-245,260-264,279-280,305-309
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/details.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-20
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/pdf.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-15
+_vendor/github.com/imfing/hextra/assets/css/chroma/dark.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-89
+_vendor/github.com/imfing/hextra/assets/css/compiled/main.css
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-2
+_vendor/github.com/imfing/hextra/layouts/_markup/render-passthrough.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-20
+docs/tags/index.html
+  s_fa24266c539e14::t_3d9ef20d629192 33,180,186-242,409-425,436-444,457-462
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 390-402,408,426,435,471,480
+  s_d36ae34589d918::t_33394caaa7ff99 101-106,292-299,463-465,472-479
+docs/projects/index.html
+  s_d36ae34589d918::t_396ad926cf93ba 443
+  s_fa24266c539e14::t_3d9ef20d629192 30,179,185-216,218-242,306-314,454-456
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 12,32
+  s_d36ae34589d918::t_33394caaa7ff99 18,29,35,100-105,292-299
+docs/tags/computer-vision/index.html
+  s_22e8b4e16afa52::t_223dfb6f7f8d3b 407-418
+  s_fa24266c539e14::t_3d9ef20d629192 33,180,186-242
+  s_d36ae34589d918::t_33394caaa7ff99 101-106,292-299
+_vendor/github.com/imfing/hextra/layouts/page.markdown.md
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-2
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/steps.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-9
+_vendor/github.com/imfing/hextra/assets/js/core/nav-menu.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-126
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/tab.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-28
+_vendor/github.com/imfing/hextra/layouts/_partials/components/giscus.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-89
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/asciinema.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-88
+_vendor/github.com/imfing/hextra/layouts/_shortcodes/hextra/feature-grid.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-21
+_vendor/modules.txt
+  s_d36ae34589d918::t_a6fc8c4586cbce 1
+_vendor/github.com/imfing/hextra/layouts/_partials/utils/fragments.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-93
+_vendor/github.com/imfing/hextra/assets/js/head/banner.js
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-6
+_vendor/github.com/imfing/hextra/layouts/_partials/sidebar.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-325
+_vendor/github.com/imfing/hextra/layouts/_markup/render-codeblock.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-13
+_vendor/github.com/imfing/hextra/layouts/_partials/components/codeblock.html
+  s_d36ae34589d918::t_a6fc8c4586cbce 1-29
+content/notes/_index.md
+  s_d36ae34589d918::t_e3f03bbc4faacc 3
+  s_22e8b4e16afa52::t_55ab7c1bfa5606 4-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "6266bd8498de22ef5d7efb91ca909fa4596a68f8",
+  "prompts": {},
+  "humans": {
+    "h_e49bc6578e470a": {
+      "author": "Allan Randall <me@allanrandall.com>"
+    }
+  },
+  "sessions": {
+    "s_009a23c03bc23a": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "9c1ea265-8102-407a-9332-3610dcbf0396",
+        "model": "gpt-5-mini"
+      },
+      "human_author": "Allan Randall <me@allanrandall.com>"
+    },
+    "s_22e8b4e16afa52": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "09cd8c20-1bdb-4b85-ba82-8f456565953f",
+        "model": "gpt-5-mini"
+      },
+      "human_author": "Allan Randall <me@allanrandall.com>"
+    },
+    "s_8396ca55d80bb4": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "b820a85f-4290-4285-afcc-61ad0f2ee4d1",
+        "model": "gpt-5-mini"
+      },
+      "human_author": "Allan Randall <me@allanrandall.com>"
+    },
+    "s_d36ae34589d918": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "0d3f5d05-2752-4600-8b1b-eabd641cc7cb",
+        "model": "gpt-5-mini"
+      },
+      "human_author": "Allan Randall <me@allanrandall.com>"
+    },
+    "s_fa24266c539e14": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "0152dc5b-781f-40fe-86f0-28cefb8abde9",
+        "model": "gpt-5-mini"
+      },
+      "human_author": "Allan Randall <me@allanrandall.com>"
+    },
+    "s_fa25ba8d3f6f4b": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "59128d38-2b88-4daa-97a7-9474e31bfed4",
+        "model": "gpt-5-mini"
+      },
+      "human_author": "Allan Randall <me@allanrandall.com>"
+    }
+  }
+}
