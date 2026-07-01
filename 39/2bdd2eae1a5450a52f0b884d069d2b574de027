@@ -1,0 +1,140 @@
+docs/notes/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 30,36-38,41,214,385
+docs/tags/computer-vision/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215
+docs/tags/machine-learning/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215
+content/projects/arctos-robot-arm/y-axis.md
+  h_e49bc6578e470a 3,13,23,29,35,49,51,53,59
+docs/tags/3d-printing/index.xml
+  s_5266c4ecd818c1::t_e97c0443df12d3 146-148,156
+  s_5266c4ecd818c1::t_87efb6965a9563 125,128-129,139-142,155,163-166,170-173
+  s_5266c4ecd818c1::t_1410afb1e83410 122-124
+  s_5266c4ecd818c1::t_5f363ca7c19309 126-127
+  s_5266c4ecd818c1::t_c582d3b993c37b 130-132
+  s_5266c4ecd818c1::t_a4df727f13afd3 143
+  s_5266c4ecd818c1::t_9d19748e129583 167-169
+  s_5266c4ecd818c1::t_52847c1a5accec 174
+docs/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 31,36-38,41,214
+docs/sitemap.xml
+  s_5266c4ecd818c1::t_e97c0443df12d3 9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,71,74,77,80
+  s_5266c4ecd818c1::t_87efb6965a9563 10,13,16,19,22,25,28,31,34,37,40,43,46,49,52,55,58,61,64,67,72,75,78,81
+docs/tags/arctos/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215,405,407
+docs/tags/3d-printing/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215,405,407
+docs/projects/arctos-robot-arm/y-axis/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 34,39,41
+  s_5266c4ecd818c1::t_e97c0443df12d3 12
+  s_5266c4ecd818c1::t_2bb67436d43d53 42
+content/projects/arctos-robot-arm/_index.md
+  h_e49bc6578e470a 3,11,13,15,17,19,21,23,25,27,29-43,45,47,49,53-55
+  s_5266c4ecd818c1::t_f3c06d4e5d1870 28,44,46,48
+docs/llms.txt
+  s_5266c4ecd818c1::t_e97c0443df12d3 22-24,27,30-31
+docs/designs/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 30,36-38,41,214,385
+docs/projects/arctos-robot-arm/index.xml
+  s_5266c4ecd818c1::t_87efb6965a9563 114,122-125,129-132
+  s_5266c4ecd818c1::t_e97c0443df12d3 115
+  s_5266c4ecd818c1::t_8b1af753ad81c3 126-128
+  s_5266c4ecd818c1::t_f8d8fe4e361aff 133
+docs/tags/meross/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215
+docs/tags/platformio/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215
+docs/tags/iot/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215
+docs/about/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 28-31,36,41-43,46,219
+docs/tags/arctos/index.xml
+  s_5266c4ecd818c1::t_87efb6965a9563 125,128-129,139-142,155,163-166,170-173
+  s_5266c4ecd818c1::t_e97c0443df12d3 146-148,156
+  s_5266c4ecd818c1::t_8baceb1bff2a03 122-124
+  s_5266c4ecd818c1::t_05c419cadbc762 126-127
+  s_5266c4ecd818c1::t_2b0cc297c5428f 130-132
+  s_5266c4ecd818c1::t_21e580fa121e39 143
+  s_5266c4ecd818c1::t_78b6bb34793dcd 167-169
+  s_5266c4ecd818c1::t_7ef3800c9a8a5a 174
+docs/tags/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215
+docs/tags/robotics/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215,405,407
+docs/projects/arctos-robot-arm/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 31,194-202,207,209-221,223,260,376,455-467,471,475,509,512-513,523-524,526
+  s_5266c4ecd818c1::t_e97c0443df12d3 12
+  s_5266c4ecd818c1::t_d299e44c9d2b30 32
+  s_5266c4ecd818c1::t_2ac52e914bb228 191-193
+  s_5266c4ecd818c1::t_f7ad2d6db7130e 203-206
+  s_5266c4ecd818c1::t_7050a71a12fb20 208
+  s_5266c4ecd818c1::t_6d39a28ffb1a49 510-511
+  s_5266c4ecd818c1::t_a37152a185546b 514-516
+  s_5266c4ecd818c1::t_6fd1749da60cfe 522
+  s_5266c4ecd818c1::t_901748d55ef16d 527-529
+content/projects/arctos-robot-arm/x-axis.md
+  h_e49bc6578e470a 3,15,29,48,50,55,59,61
+docs/projects/arctos-robot-arm/test-prints/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 11,14,18,25,34,38,41,45,230-241,386,464-471,477,481,489,524,530,534,538-541,545
+  s_5266c4ecd818c1::t_e97c0443df12d3 12
+  s_5266c4ecd818c1::t_41f22dd0c30d4e 39
+  s_5266c4ecd818c1::t_a56fae27fc0173 42
+  s_5266c4ecd818c1::t_8ff39b2b5b5e01 46-48
+  s_5266c4ecd818c1::t_e2eafb5e65b446 535-537
+  s_5266c4ecd818c1::t_cf3367ecb87805 542-544
+docs/tags/robotics/index.xml
+  s_5266c4ecd818c1::t_87efb6965a9563 125,128-129,139-142,155,163-166,170-173
+  s_5266c4ecd818c1::t_e97c0443df12d3 146-148,156
+  s_5266c4ecd818c1::t_3cb3c43cc258a5 122-124
+  s_5266c4ecd818c1::t_7c552fb431289b 126-127
+  s_5266c4ecd818c1::t_f0c8a425e660be 130-132
+  s_5266c4ecd818c1::t_0bfa3c048ab517 143
+  s_5266c4ecd818c1::t_b556d37107b0b3 167-169
+  s_5266c4ecd818c1::t_0e77d9030010b4 174
+docs/projects/arctos-robot-arm/x-axis/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 34,39,41
+  s_5266c4ecd818c1::t_e97c0443df12d3 12
+  s_5266c4ecd818c1::t_74f4bffabf5eec 42
+docs/projects/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 30,36-38,41,215,331,436
+docs/projects/meross/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 31,37-39,42,236,352,620
+docs/engineering/doppelganger-opencv/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 34,41,47-49,52,225,804
+docs/engineering/radiologyai-covid/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 225
+content/projects/arctos-robot-arm/test-prints.md
+  h_e49bc6578e470a 2-3,11,13-27,31,33,41,45,49
+  s_5266c4ecd818c1::t_0c1fb0dbeec4bf 12,39
+docs/engineering/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 30,36-38,41,214,403
+docs/tags/esp8266/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215
+docs/categories/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 213
+docs/tags/python/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215
+docs/tags/opencv/index.html
+  s_5266c4ecd818c1::t_87efb6965a9563 33,37-39,42,215
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.5",
+  "base_commit_sha": "392bdd2eae1a5450a52f0b884d069d2b574de027",
+  "prompts": {},
+  "humans": {
+    "h_e49bc6578e470a": {
+      "author": "Allan Randall <me@allanrandall.com>"
+    }
+  },
+  "sessions": {
+    "s_5266c4ecd818c1": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "9cc5d233-c61d-4589-9440-0381967ced64",
+        "model": "gpt-5-mini"
+      },
+      "human_author": "Allan Randall <me@allanrandall.com>"
+    }
+  }
+}
