@@ -1,0 +1,14 @@
+static/spinner/index.html
+  h_e49bc6578e470a 399-405,438-440,477-484,493,511,554-559,612-615,625-630,1242,1246-1251,1269-1273
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "8713867a1d5a730224cc404998fccc70654e0bbd",
+  "prompts": {},
+  "humans": {
+    "h_e49bc6578e470a": {
+      "author": "Allan Randall <me@allanrandall.com>"
+    }
+  }
+}
