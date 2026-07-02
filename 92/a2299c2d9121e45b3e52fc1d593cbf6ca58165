@@ -1,0 +1,14 @@
+TODO.md
+  h_e49bc6578e470a 1-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "92a2299c2d9121e45b3e52fc1d593cbf6ca58165",
+  "prompts": {},
+  "humans": {
+    "h_e49bc6578e470a": {
+      "author": "Allan Randall <me@allanrandall.com>"
+    }
+  }
+}
