@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spinner</title>
+    <style>
+      :root {
+        --bg: #0f1419;
+        --surface: #1a2332;
+        --surface2: #243044;
+        --text: #e7ecf3;
+        --muted: #8b9cb3;
+        --accent: #3b82f6;
+        --accent-hover: #2563eb;
+        --success: #22c55e;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --border: #2d3a4f;
+        --radius: 12px;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        background:
+          radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.12), transparent),
+          var(--bg);
+      }
+
+      .app {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 1.25rem 1rem 2.5rem;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      header h1 {
+        margin: 0 0 0.35rem;
+        font-size: 1.75rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .main-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(15rem, 17.5rem);
+        gap: 1rem;
+        align-items: start;
+        margin-bottom: 1.25rem;
+      }
+
+      @media (max-width: 768px) {
+        .main-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .wheel-col {
+        min-width: 0;
+      }
+
+      .wheel-stage {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: min(100%, 380px);
+        aspect-ratio: 1;
+      }
+
+      .wheel-pointer {
+        position: absolute;
+        top: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        width: 0;
+        height: 0;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-top: 28px solid var(--text);
+        filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+      }
+
+      .wheel-pointer::after {
+        content: "";
+        position: absolute;
+        top: -26px;
+        left: -8px;
+        width: 16px;
+        height: 16px;
+        background: var(--text);
+        border-radius: 50%;
+        box-shadow: 0 0 12px rgba(231, 236, 243, 0.4);
+      }
+
+      .wheel-ring {
+        position: absolute;
+        inset: -8px;
+        border-radius: 50%;
+        border: 3px solid var(--border);
+        box-shadow:
+          var(--shadow),
+          inset 0 0 40px rgba(0, 0, 0, 0.35);
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      #wheel-canvas {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: block;
+      }
+
+      .results-block {
+        margin-top: 1rem;
+      }
+
+      .results-block h2 {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+        margin: 0 0 0.75rem;
+      }
+
+      .spin-results {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .spin-result-row {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.55rem 0.85rem;
+        border-radius: var(--radius);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        font-size: 0.95rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      .spin-result-row.revealed {
+        border-color: var(--success);
+        box-shadow: 0 0 16px rgba(34, 197, 94, 0.15);
+      }
+
+      .spin-result-row.spinning {
+        border-color: var(--accent);
+      }
+
+      .spin-order {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        background: var(--surface2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--muted);
+        flex-shrink: 0;
+      }
+
+      .spin-result-row.revealed .spin-order {
+        background: var(--success);
+        color: white;
+      }
+
+      .spin-name {
+        flex: 1;
+        font-weight: 600;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .spin-name.placeholder {
+        font-weight: 500;
+        color: var(--muted);
+      }
+
+      .participants-panel {
+        margin-bottom: 0;
+        align-self: stretch;
+      }
+
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .panel h2 {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+        margin: 0 0 0.75rem;
+      }
+
+      .names-list {
+        list-style: none;
+        margin: 0 0 0.75rem;
+        padding: 0;
+      }
+
+      .name-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem 0.65rem;
+        padding: 0.45rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.875rem;
+        min-height: 2.25rem;
+      }
+
+      .name-row:last-child {
+        border-bottom: none;
+      }
+
+      .name-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .name-row .participant-name {
+        flex: 1;
+        font-weight: 500;
+        font-size: 0.95rem;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .kick-btn {
+        flex: 0 0 auto;
+        font-size: 0.75rem;
+        padding: 0.2rem 0.45rem;
+        line-height: 1;
+        min-width: 1.75rem;
+      }
+
+      .add-name-row {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .add-name-row input {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .add-name-row button {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      .options-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      label.field-label {
+        display: block;
+        margin-bottom: 0.35rem;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+
+      .toggle-switch {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.85rem;
+        padding: 0.85rem 1rem;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .toggle-switch input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+      }
+
+      .toggle-track {
+        flex: 0 0 auto;
+        width: 2.75rem;
+        height: 1.5rem;
+        margin-top: 0.1rem;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        position: relative;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+
+      .toggle-track::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 50%;
+        background: var(--muted);
+        transition: transform 0.15s ease, background 0.15s ease;
+      }
+
+      .toggle-switch input:checked + .toggle-track {
+        background: rgba(59, 130, 246, 0.25);
+        border-color: var(--accent);
+      }
+
+      .toggle-switch input:checked + .toggle-track::after {
+        transform: translateX(1.2rem);
+        background: var(--accent);
+      }
+
+      .toggle-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        min-width: 0;
+      }
+
+      .toggle-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .toggle-hint {
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.35;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 0.6rem 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface2);
+        color: var(--text);
+        font: inherit;
+      }
+
+      input:focus,
+      select:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: 1px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        padding: 0.65rem 1.1rem;
+        background: var(--accent);
+        color: white;
+        font: inherit;
+        font-weight: 500;
+      }
+
+      button:hover:not(:disabled) {
+        background: var(--accent-hover);
+      }
+
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      button.secondary {
+        background: var(--surface2);
+        color: var(--text);
+      }
+
+      button.secondary:hover:not(:disabled) {
+        background: #2d3d56;
+      }
+
+      #spin-btn {
+        flex: 1;
+        min-width: 8rem;
+        font-size: 1.05rem;
+        padding: 0.8rem 1.25rem;
+      }
+
+      .list-empty {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 0;
+        padding: 0.25rem 0;
+      }
+
+      .results-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+      }
+
+      .results-actions[hidden] {
+        display: none;
+      }
+
+      .results-actions button {
+        flex: 1;
+        min-width: 7rem;
+        font-size: 0.85rem;
+        padding: 0.5rem 0.85rem;
+      }
+
+      .copy-hint {
+        margin-top: 1rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--border);
+        font-size: 0.8rem;
+        color: var(--muted);
+        word-break: break-all;
+      }
+
+      .copy-hint code {
+        font-size: 0.78rem;
+        color: var(--text);
+        background: var(--surface2);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <h1>Spinner</h1>
+        <p>Feeling lucky? Spin the wheel to pick a name!</p>
+      </header>
+
+      <div class="main-row">
+        <div class="wheel-col">
+          <div class="wheel-stage">
+            <div class="wheel-pointer" aria-hidden="true"></div>
+            <div class="wheel-ring" aria-hidden="true"></div>
+            <canvas id="wheel-canvas" width="760" height="760" role="img" aria-label="Spinning wheel"></canvas>
+          </div>
+          <div class="results-block">
+            <h2>Results</h2>
+            <ul class="spin-results" id="spin-results" aria-live="polite"></ul>
+          </div>
+          <div class="results-actions" id="results-actions" hidden>
+            <button type="button" id="copy-results-btn" class="secondary">Copy results</button>
+            <button type="button" id="copy-image-btn" class="secondary">Copy image</button>
+          </div>
+        </div>
+
+        <div class="panel participants-panel">
+          <h2>Participants</h2>
+          <ul class="names-list" id="names-list"></ul>
+          <div class="add-name-row">
+            <input
+              type="text"
+              id="name-input"
+              placeholder="Add a name…"
+              maxlength="40"
+              autocomplete="off"
+            />
+            <button type="button" id="add-btn" class="secondary">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Options</h2>
+        <div class="options-grid">
+          <div>
+            <label class="field-label" for="spin-count">Number of spins</label>
+            <select id="spin-count"></select>
+          </div>
+          <label class="toggle-switch" for="remove-winners">
+            <input type="checkbox" id="remove-winners" />
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-copy">
+              <span class="toggle-title">Remove winners after each spin</span>
+              <span class="toggle-hint">Limits spins to the number of names</span>
+            </span>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="button" id="spin-btn">Spin</button>
+          <button type="button" id="copy-link-btn" class="secondary">Copy link</button>
+        </div>
+        <p class="copy-hint">
+          Share this page with names in the URL:
+          <code id="share-url"></code>
+        </p>
+      </div>
+
+    </div>
+
+    <script>
+      const SEGMENT_COLORS = [
+        "#f59e0b",
+        "#3b82f6",
+        "#22c55e",
+        "#a855f7",
+        "#ef4444",
+        "#06b6d4",
+        "#ec4899",
+        "#84cc16",
+      ];
+
+      const SPIN_DURATION_MS = 5000;
+      const MIN_FULL_ROTATIONS = 5;
+
+      const canvas = document.getElementById("wheel-canvas");
+      const ctx = canvas.getContext("2d");
+      const namesListEl = document.getElementById("names-list");
+      const nameInput = document.getElementById("name-input");
+      const addBtn = document.getElementById("add-btn");
+      const spinBtn = document.getElementById("spin-btn");
+      const copyLinkBtn = document.getElementById("copy-link-btn");
+      const spinCountEl = document.getElementById("spin-count");
+      const removeWinnersEl = document.getElementById("remove-winners");
+      const spinResultsEl = document.getElementById("spin-results");
+      const resultsActionsEl = document.getElementById("results-actions");
+      const copyResultsBtn = document.getElementById("copy-results-btn");
+      const copyImageBtn = document.getElementById("copy-image-btn");
+      const shareUrlEl = document.getElementById("share-url");
+
+      let allNames = [];
+      let pool = [];
+      let wheelAngle = 0;
+      let spinning = false;
+      let animFrame = null;
+      let spinResults = [];
+
+      function parseNamesFromUrl() {
+        const raw = new URLSearchParams(location.search).get("names");
+        if (!raw) return [];
+        return raw
+          .split(",")
+          .map((n) => n.trim())
+          .filter(Boolean)
+          .filter((n, i, arr) => arr.indexOf(n) === i);
+      }
+
+      function syncUrl() {
+        const url = new URL(location.href);
+        if (allNames.length) {
+          url.searchParams.set("names", allNames.join(","));
+        } else {
+          url.searchParams.delete("names");
+        }
+        history.replaceState(null, "", url);
+        shareUrlEl.textContent = url.pathname + url.search;
+      }
+
+      function segmentColor(index) {
+        return SEGMENT_COLORS[index % SEGMENT_COLORS.length];
+      }
+
+      function setNames(names) {
+        allNames = names.slice();
+        pool = names.slice();
+        renderNamesList();
+        drawWheel();
+        updateSpinCountOptions();
+        syncUrl();
+        resetSpinResults();
+      }
+
+      function selectedSpinCount() {
+        return parseInt(spinCountEl.value, 10) || 1;
+      }
+
+      function resetSpinResults() {
+        spinResults = [];
+        renderSpinResults();
+        updateResultsActions();
+      }
+
+      function getCompletedResults() {
+        return spinResults.filter((r) => r && r !== "spinning");
+      }
+
+      function hasCompleteResults() {
+        return !spinning && getCompletedResults().length > 0;
+      }
+
+      function updateResultsActions() {
+        resultsActionsEl.hidden = !hasCompleteResults();
+      }
+
+      function formatResultsText() {
+        const winners = getCompletedResults();
+        const lines = ["Spinner Results", ""];
+        if (allNames.length) {
+          lines.push(`Participants: ${allNames.join(", ")}`);
+          lines.push("");
+        }
+        winners.forEach((name, i) => lines.push(`${i + 1}. ${name}`));
+        return lines.join("\n");
+      }
+
+      function roundRect(ctx, x, y, w, h, r, fill, stroke) {
+        const radius = Math.min(r, w / 2, h / 2);
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.arcTo(x + w, y, x + w, y + h, radius);
+        ctx.arcTo(x + w, y + h, x, y + h, radius);
+        ctx.arcTo(x, y + h, x, y, radius);
+        ctx.arcTo(x, y, x + w, y, radius);
+        ctx.closePath();
+        if (fill) {
+          ctx.fillStyle = fill;
+          ctx.fill();
+        }
+        if (stroke) {
+          ctx.strokeStyle = stroke;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+
+      function drawExportPointer(ctx, cx, topY) {
+        ctx.beginPath();
+        ctx.moveTo(cx, topY);
+        ctx.lineTo(cx - 12, topY - 22);
+        ctx.lineTo(cx + 12, topY - 22);
+        ctx.closePath();
+        ctx.fillStyle = "#e7ecf3";
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(cx, topY - 20, 7, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      function buildResultsImage() {
+        const pad = 28;
+        const wheelSize = 280;
+        const colGap = 20;
+        const panelW = 210;
+        const width = pad * 2 + wheelSize + colGap + panelW;
+        const winners = getCompletedResults();
+        const resultRowH = 34;
+        const resultGap = 8;
+        const resultsBlockH = winners.length
+          ? 22 + winners.length * (resultRowH + resultGap)
+          : 0;
+        const namesBlockH = 28 + Math.max(allNames.length, 1) * 30;
+        const headerH = 52;
+        const pointerGap = 28;
+        const topY = pad + headerH + pointerGap;
+        const bodyH = Math.max(wheelSize + resultsBlockH + 12, namesBlockH);
+        const height = topY + bodyH + pad;
+
+        const exportCanvas = document.createElement("canvas");
+        const scale = 2;
+        exportCanvas.width = width * scale;
+        exportCanvas.height = height * scale;
+        const g = exportCanvas.getContext("2d");
+        g.scale(scale, scale);
+
+        g.fillStyle = "#0f1419";
+        g.fillRect(0, 0, width, height);
+
+        const grad = g.createRadialGradient(width / 2, 0, 0, width / 2, 0, width * 0.6);
+        grad.addColorStop(0, "rgba(59, 130, 246, 0.12)");
+        grad.addColorStop(1, "rgba(15, 20, 25, 0)");
+        g.fillStyle = grad;
+        g.fillRect(0, 0, width, height * 0.45);
+
+        g.fillStyle = "#e7ecf3";
+        g.font = "700 22px system-ui, -apple-system, sans-serif";
+        g.textAlign = "center";
+        g.textBaseline = "middle";
+        g.fillText("Spinner", width / 2, pad + 14);
+
+        g.fillStyle = "#8b9cb3";
+        g.font = "400 13px system-ui, -apple-system, sans-serif";
+        g.fillText("Feeling lucky? Spin the wheel to pick a name!", width / 2, pad + 36);
+
+        const leftX = pad;
+        const wheelCx = leftX + wheelSize / 2;
+        const wheelCy = topY + wheelSize / 2;
+
+        drawExportPointer(g, wheelCx, topY + 2);
+
+        g.beginPath();
+        g.arc(wheelCx, wheelCy, wheelSize / 2 + 5, 0, Math.PI * 2);
+        g.strokeStyle = "#2d3a4f";
+        g.lineWidth = 3;
+        g.stroke();
+
+        g.save();
+        g.beginPath();
+        g.arc(wheelCx, wheelCy, wheelSize / 2, 0, Math.PI * 2);
+        g.clip();
+        g.drawImage(
+          canvas,
+          wheelCx - wheelSize / 2,
+          wheelCy - wheelSize / 2,
+          wheelSize,
+          wheelSize
+        );
+        g.restore();
+
+        let ry = topY + wheelSize + 16;
+        if (winners.length) {
+          g.fillStyle = "#8b9cb3";
+          g.font = "600 10px system-ui, sans-serif";
+          g.textAlign = "left";
+          g.textBaseline = "alphabetic";
+          g.fillText("RESULTS", leftX, ry);
+          ry += 14;
+
+          winners.forEach((name, i) => {
+            roundRect(g, leftX, ry, wheelSize, resultRowH, 10, "#1a2332", "#22c55e");
+            g.beginPath();
+            g.arc(leftX + 18, ry + resultRowH / 2, 10, 0, Math.PI * 2);
+            g.fillStyle = "#22c55e";
+            g.fill();
+            g.fillStyle = "#ffffff";
+            g.font = "700 10px system-ui, sans-serif";
+            g.textAlign = "center";
+            g.textBaseline = "middle";
+            g.fillText(String(i + 1), leftX + 18, ry + resultRowH / 2);
+            g.fillStyle = "#e7ecf3";
+            g.font = "600 14px system-ui, sans-serif";
+            g.textAlign = "left";
+            g.fillText(name, leftX + 36, ry + resultRowH / 2);
+            ry += resultRowH + resultGap;
+          });
+        }
+
+        const panelX = leftX + wheelSize + colGap;
+        const panelH = Math.max(namesBlockH, wheelSize);
+        roundRect(g, panelX, topY, panelW, panelH, 12, "#1a2332", "#2d3a4f");
+
+        g.fillStyle = "#8b9cb3";
+        g.font = "600 10px system-ui, sans-serif";
+        g.textAlign = "left";
+        g.textBaseline = "alphabetic";
+        g.fillText("PARTICIPANTS", panelX + 14, topY + 22);
+
+        let ny = topY + 36;
+        if (!allNames.length) {
+          g.fillStyle = "#8b9cb3";
+          g.font = "400 13px system-ui, sans-serif";
+          g.fillText("No participants", panelX + 14, ny + 10);
+        } else {
+          allNames.forEach((name, i) => {
+            g.beginPath();
+            g.arc(panelX + 18, ny + 8, 5, 0, Math.PI * 2);
+            g.fillStyle = segmentColor(i);
+            g.fill();
+            g.fillStyle = "#e7ecf3";
+            g.font = "500 13px system-ui, sans-serif";
+            g.textBaseline = "middle";
+            g.fillText(truncate(name, 18), panelX + 30, ny + 8);
+            ny += 30;
+          });
+        }
+
+        return exportCanvas;
+      }
+
+      async function flashButton(btn, okText, failText) {
+        const prev = btn.textContent;
+        btn.textContent = okText;
+        setTimeout(() => {
+          btn.textContent = prev;
+        }, 1500);
+        if (failText && okText === failText) return;
+      }
+
+      async function copyResultsText() {
+        try {
+          await navigator.clipboard.writeText(formatResultsText());
+          flashButton(copyResultsBtn, "Copied!");
+        } catch {
+          flashButton(copyResultsBtn, "Copy failed");
+        }
+      }
+
+      async function copyResultsImage() {
+        const exportCanvas = buildResultsImage();
+        const blob = await new Promise((resolve) =>
+          exportCanvas.toBlob(resolve, "image/png")
+        );
+        if (!blob) {
+          flashButton(copyImageBtn, "Copy failed");
+          return;
+        }
+
+        try {
+          await navigator.clipboard.write([
+            new ClipboardItem({ "image/png": blob }),
+          ]);
+          flashButton(copyImageBtn, "Copied!");
+        } catch {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "spinner-results.png";
+          a.click();
+          URL.revokeObjectURL(url);
+          flashButton(copyImageBtn, "Downloaded");
+        }
+      }
+
+      function renderSpinResults() {
+        const total = selectedSpinCount();
+        spinResultsEl.innerHTML = "";
+
+        if (!allNames.length) {
+          const li = document.createElement("li");
+          li.className = "list-empty";
+          li.textContent = "Add names and press Spin";
+          spinResultsEl.appendChild(li);
+          updateResultsActions();
+          return;
+        }
+
+        for (let i = 0; i < total; i++) {
+          const result = spinResults[i];
+          const li = document.createElement("li");
+          li.className = "spin-result-row";
+          if (result === "spinning") li.classList.add("spinning");
+          else if (result) li.classList.add("revealed");
+
+          let nameText = "—";
+          let nameClass = "spin-name placeholder";
+          if (result === "spinning") {
+            nameText = "Spinning…";
+          } else if (result) {
+            nameText = result;
+            nameClass = "spin-name";
+          }
+
+          li.innerHTML = `
+            <span class="spin-order">${i + 1}</span>
+            <span class="${nameClass}">${result && result !== "spinning" ? escapeHtml(result) : nameText}</span>
+          `;
+          spinResultsEl.appendChild(li);
+        }
+        updateResultsActions();
+      }
+
+      function setSpinSlot(index, value) {
+        spinResults[index] = value;
+        renderSpinResults();
+      }
+
+      function renderNamesList() {
+        namesListEl.innerHTML = "";
+        if (!allNames.length) {
+          const li = document.createElement("li");
+          li.className = "list-empty";
+          li.textContent = "No names yet — add some below.";
+          namesListEl.appendChild(li);
+          return;
+        }
+        allNames.forEach((name, i) => {
+          const li = document.createElement("li");
+          li.className = "name-row";
+          li.innerHTML = `
+            <span class="name-dot" style="background:${segmentColor(i)}"></span>
+            <span class="participant-name">${escapeHtml(name)}</span>
+            <button type="button" class="secondary kick-btn" aria-label="Remove ${escapeHtml(name)}" title="Remove">✕</button>
+          `;
+          li.querySelector("button").addEventListener("click", () => removeName(name));
+          namesListEl.appendChild(li);
+        });
+      }
+
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function addName(raw) {
+        const name = raw.trim();
+        if (!name) return;
+        if (allNames.some((n) => n.toLowerCase() === name.toLowerCase())) {
+          nameInput.value = "";
+          nameInput.focus();
+          return;
+        }
+        allNames.push(name);
+        pool.push(name);
+        nameInput.value = "";
+        renderNamesList();
+        drawWheel();
+        updateSpinCountOptions();
+        syncUrl();
+        renderSpinResults();
+        nameInput.focus();
+      }
+
+      function removeName(name) {
+        if (spinning) return;
+        allNames = allNames.filter((n) => n !== name);
+        pool = pool.filter((n) => n !== name);
+        renderNamesList();
+        drawWheel();
+        updateSpinCountOptions();
+        syncUrl();
+        renderSpinResults();
+      }
+
+      function updateSpinCountOptions() {
+        const prev = parseInt(spinCountEl.value, 10) || 1;
+        const max = removeWinnersEl.checked
+          ? Math.max(1, allNames.length)
+          : 20;
+
+        spinCountEl.innerHTML = "";
+        for (let i = 1; i <= max; i++) {
+          const opt = document.createElement("option");
+          opt.value = String(i);
+          opt.textContent = i === 1 ? "1 spin" : `${i} spins`;
+          spinCountEl.appendChild(opt);
+        }
+        spinCountEl.value = String(Math.min(prev, max));
+        spinBtn.disabled = allNames.length < 1;
+        if (!spinning) {
+          spinResults = spinResults.slice(0, max);
+          renderSpinResults();
+        }
+      }
+
+      function drawWheel(highlightIndex = -1) {
+        const names = pool.length ? pool : allNames;
+        const size = canvas.width;
+        const cx = size / 2;
+        const cy = size / 2;
+        const radius = size / 2 - 12;
+
+        ctx.clearRect(0, 0, size, size);
+
+        if (!names.length) {
+          ctx.beginPath();
+          ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+          ctx.fillStyle = "#243044";
+          ctx.fill();
+          ctx.strokeStyle = "#2d3a4f";
+          ctx.lineWidth = 3;
+          ctx.stroke();
+          ctx.fillStyle = "#8b9cb3";
+          ctx.font = "600 28px system-ui, sans-serif";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText("Add names", cx, cy);
+          return;
+        }
+
+        const slice = (Math.PI * 2) / names.length;
+
+        names.forEach((name, i) => {
+          const start = wheelAngle + i * slice - Math.PI / 2;
+          const end = start + slice;
+          const mid = start + slice / 2;
+          const color = segmentColor(i);
+
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+          ctx.arc(cx, cy, radius, start, end);
+          ctx.closePath();
+
+          const grad = ctx.createRadialGradient(cx, cy, radius * 0.15, cx, cy, radius);
+          grad.addColorStop(0, lighten(color, 0.15));
+          grad.addColorStop(1, color);
+          ctx.fillStyle = grad;
+          ctx.fill();
+
+          if (i === highlightIndex) {
+            ctx.strokeStyle = "#ffffff";
+            ctx.lineWidth = 4;
+            ctx.stroke();
+          } else {
+            ctx.strokeStyle = "rgba(15, 20, 25, 0.5)";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+          }
+
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(mid);
+          ctx.textAlign = "right";
+          ctx.textBaseline = "middle";
+          ctx.fillStyle = "#ffffff";
+          ctx.font = `600 ${names.length > 8 ? 18 : names.length > 5 ? 22 : 26}px system-ui, sans-serif`;
+          ctx.shadowColor = "rgba(0,0,0,0.6)";
+          ctx.shadowBlur = 4;
+          const label = truncate(name, names.length > 8 ? 10 : 14);
+          ctx.fillText(label, radius - 28, 0);
+          ctx.restore();
+        });
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius * 0.12, 0, Math.PI * 2);
+        ctx.fillStyle = "#1a2332";
+        ctx.fill();
+        ctx.strokeStyle = "#2d3a4f";
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius * 0.05, 0, Math.PI * 2);
+        ctx.fillStyle = "#e7ecf3";
+        ctx.fill();
+      }
+
+      function lighten(hex, amount) {
+        const n = parseInt(hex.slice(1), 16);
+        const r = Math.min(255, ((n >> 16) & 255) + 255 * amount);
+        const g = Math.min(255, ((n >> 8) & 255) + 255 * amount);
+        const b = Math.min(255, (n & 255) + 255 * amount);
+        return `rgb(${r | 0},${g | 0},${b | 0})`;
+      }
+
+      function truncate(str, max) {
+        return str.length > max ? str.slice(0, max - 1) + "…" : str;
+      }
+
+      function easeOutQuint(t) {
+        return 1 - Math.pow(1 - t, 5);
+      }
+
+      function pointerAngleForIndex(index, count) {
+        const slice = (Math.PI * 2) / count;
+        return -(index * slice + slice / 2);
+      }
+
+      function normalizeAngle(a) {
+        const tau = Math.PI * 2;
+        return ((a % tau) + tau) % tau;
+      }
+
+      function spinToWinner(winnerIndex, names) {
+        return new Promise((resolve) => {
+          const count = names.length;
+          const slice = (Math.PI * 2) / count;
+          const targetMod = normalizeAngle(pointerAngleForIndex(winnerIndex, count));
+          const currentMod = normalizeAngle(wheelAngle);
+          let delta = targetMod - currentMod;
+          if (delta <= 0) delta += Math.PI * 2;
+          delta += MIN_FULL_ROTATIONS * Math.PI * 2;
+
+          const startAngle = wheelAngle;
+          const endAngle = startAngle + delta;
+          const startTime = performance.now();
+
+          function tick(now) {
+            const elapsed = now - startTime;
+            const t = Math.min(1, elapsed / SPIN_DURATION_MS);
+            const eased = easeOutQuint(t);
+            wheelAngle = startAngle + delta * eased;
+            drawWheel(t < 1 ? -1 : winnerIndex);
+
+            if (t < 1) {
+              animFrame = requestAnimationFrame(tick);
+            } else {
+              wheelAngle = endAngle;
+              drawWheel(winnerIndex);
+              resolve(names[winnerIndex]);
+            }
+          }
+
+          animFrame = requestAnimationFrame(tick);
+        });
+      }
+
+      async function runSpins() {
+        if (spinning || pool.length < 1) return;
+
+        spinning = true;
+        spinBtn.disabled = true;
+        addBtn.disabled = true;
+        removeWinnersEl.disabled = true;
+        spinCountEl.disabled = true;
+
+        const totalSpins = selectedSpinCount();
+        const remove = removeWinnersEl.checked;
+        let workingPool = pool.slice();
+        spinResults = Array(totalSpins).fill(undefined);
+        renderSpinResults();
+        updateResultsActions();
+
+        for (let s = 0; s < totalSpins; s++) {
+          if (workingPool.length < 1) break;
+
+          setSpinSlot(s, "spinning");
+
+          const winnerIndex = Math.floor(Math.random() * workingPool.length);
+          const winner = await spinToWinner(winnerIndex, workingPool);
+          setSpinSlot(s, winner);
+
+          if (remove) {
+            workingPool = workingPool.filter((n) => n !== winner);
+            pool = workingPool.slice();
+            await pause(400);
+            drawWheel();
+          } else {
+            await pause(600);
+          }
+        }
+
+        pool = remove ? workingPool : allNames.slice();
+        drawWheel();
+
+        spinning = false;
+        spinBtn.disabled = allNames.length < 1;
+        addBtn.disabled = false;
+        removeWinnersEl.disabled = false;
+        spinCountEl.disabled = false;
+        updateSpinCountOptions();
+        updateResultsActions();
+      }
+
+      function pause(ms) {
+        return new Promise((r) => setTimeout(r, ms));
+      }
+
+      addBtn.addEventListener("click", () => addName(nameInput.value));
+      nameInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") addName(nameInput.value);
+      });
+      spinBtn.addEventListener("click", runSpins);
+      removeWinnersEl.addEventListener("change", () => {
+        if (!removeWinnersEl.checked) pool = allNames.slice();
+        updateSpinCountOptions();
+        drawWheel();
+      });
+      spinCountEl.addEventListener("change", () => {
+        if (!spinning) {
+          spinResults = [];
+          renderSpinResults();
+        }
+      });
+      copyLinkBtn.addEventListener("click", async () => {
+        const url = location.origin + location.pathname + (allNames.length ? `?names=${encodeURIComponent(allNames.join(","))}` : "");
+        try {
+          await navigator.clipboard.writeText(url);
+          const prev = copyLinkBtn.textContent;
+          copyLinkBtn.textContent = "Copied!";
+          setTimeout(() => {
+            copyLinkBtn.textContent = prev;
+          }, 1500);
+        } catch {
+          copyLinkBtn.textContent = "Copy failed";
+        }
+      });
+      copyResultsBtn.addEventListener("click", copyResultsText);
+      copyImageBtn.addEventListener("click", copyResultsImage);
+
+      window.addEventListener("resize", () => drawWheel());
+
+      setNames(parseNamesFromUrl());
+      shareUrlEl.textContent = location.pathname + location.search;
+    </script>
+  </body>
+</html>
