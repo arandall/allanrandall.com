@@ -435,11 +435,22 @@
       }
 
       #spin-btn {
-        width: min(100%, 380px);
-        display: block;
-        margin: 1.75rem auto 0;
+        flex: 1;
         font-size: 1.05rem;
         padding: 0.8rem 1.25rem;
+      }
+
+      #reset-btn {
+        flex: 0 0 auto;
+        font-size: 1.05rem;
+        padding: 0.8rem 1.25rem;
+      }
+
+      .spin-btn-row {
+        display: flex;
+        gap: 0.5rem;
+        width: min(100%, 380px);
+        margin: 1.75rem auto 0;
       }
 
       .list-empty {
@@ -508,7 +519,10 @@
             <div class="wheel-ring" aria-hidden="true"></div>
             <canvas id="wheel-canvas" width="760" height="760" role="img" aria-label="Spinning wheel"></canvas>
           </div>
-          <button type="button" id="spin-btn">Spin</button>
+          <div class="spin-btn-row">
+            <button type="button" id="spin-btn">Spin</button>
+            <button type="button" id="reset-btn" class="secondary" hidden>Reset</button>
+          </div>
           <div class="results-block">
             <h2>Results</h2>
             <ul class="spin-results" id="spin-results" aria-live="polite"></ul>
@@ -583,6 +597,7 @@
       const nameInput = document.getElementById("name-input");
       const addBtn = document.getElementById("add-btn");
       const spinBtn = document.getElementById("spin-btn");
+      const resetBtn = document.getElementById("reset-btn");
       const copyLinkBtn = document.getElementById("copy-link-btn");
       const spinCountEl = document.getElementById("spin-count");
       const removeWinnersEl = document.getElementById("remove-winners");
@@ -596,8 +611,11 @@
       let pool = [];
       let wheelAngle = 0;
       let spinning = false;
+      let spinsComplete = false;
       let animFrame = null;
       let spinResults = [];
+      // Map from name string -> assigned color (persists across removals)
+      let nameColorMap = {};
 
       function parseNamesFromUrl() {
         const raw = new URLSearchParams(location.search).get("names");
@@ -618,7 +636,7 @@
       function syncUrl() {
         const url = new URL(location.href);
         if (allNames.length) {
-          url.searchParams.set("names", allNames.join(","));
+          url.searchParams.set("names", allNames.map((e) => e.name).join(","));
         } else {
           url.searchParams.delete("names");
         }
@@ -632,13 +650,36 @@
         shareUrlEl.textContent = url.pathname + url.search;
       }
 
-      function segmentColor(index) {
-        return SEGMENT_COLORS[index % SEGMENT_COLORS.length];
+      function assignColor(name) {
+        if (nameColorMap[name]) return nameColorMap[name];
+        // Find the next color not currently in use
+        const usedColors = new Set(allNames.map((e) => e.color));
+        for (let i = 0; i < SEGMENT_COLORS.length; i++) {
+          const c = SEGMENT_COLORS[i];
+          if (!usedColors.has(c)) {
+            nameColorMap[name] = c;
+            return c;
+          }
+        }
+        // All colors in use — cycle by total count
+        const color = SEGMENT_COLORS[Object.keys(nameColorMap).length % SEGMENT_COLORS.length];
+        nameColorMap[name] = color;
+        return color;
+      }
+
+      function colorFor(name) {
+        return nameColorMap[name] || SEGMENT_COLORS[0];
       }
 
       function setNames(names) {
-        allNames = names.slice();
-        pool = names.slice();
+        nameColorMap = {};
+        allNames = [];
+        names.forEach((n) => {
+          const color = assignColor(n);
+          allNames.push({ name: n, color });
+        });
+        pool = allNames.slice();
+        spinsComplete = false;
         renderNamesList();
         drawWheel();
         updateSpinCountOptions();
@@ -654,6 +695,22 @@
         spinResults = [];
         renderSpinResults();
         updateResultsActions();
+      }
+
+      function updateSpinBtn() {
+        spinBtn.textContent = "Spin";
+        spinBtn.disabled = allNames.length < 1 || spinning;
+        resetBtn.hidden = !spinsComplete;
+      }
+
+      function resetWheel() {
+        spinsComplete = false;
+        pool = allNames.slice();
+        wheelAngle = 0;
+        drawWheel();
+        resetSpinResults();
+        updateSpinCountOptions();
+        updateSpinBtn();
       }
 
       function getCompletedResults() {
@@ -672,7 +729,7 @@
         const winners = getCompletedResults();
         const lines = ["Spinner Results", ""];
         if (allNames.length) {
-          lines.push(`Participants: ${allNames.join(", ")}`);
+          lines.push(`Participants: ${allNames.map((e) => e.name).join(", ")}`);
           lines.push("");
         }
         winners.forEach((name, i) => lines.push(`${i + 1}. ${name}`));
@@ -792,8 +849,7 @@
           ry += 14;
 
           winners.forEach((name, i) => {
-            const nameIndex = allNames.indexOf(name);
-            const color = nameIndex >= 0 ? segmentColor(nameIndex) : "#22c55e";
+            const color = colorFor(name);
             roundRect(g, leftX, ry, wheelSize, resultRowH, 10, "#1a2332", color);
             g.beginPath();
             g.arc(leftX + 18, ry + resultRowH / 2, 10, 0, Math.PI * 2);
@@ -828,10 +884,10 @@
           g.font = "400 13px system-ui, sans-serif";
           g.fillText("No participants", panelX + 14, ny + 10);
         } else {
-          allNames.forEach((name, i) => {
+          allNames.forEach(({ name, color }) => {
             g.beginPath();
             g.arc(panelX + 18, ny + 8, 5, 0, Math.PI * 2);
-            g.fillStyle = segmentColor(i);
+            g.fillStyle = color;
             g.fill();
             g.fillStyle = "#e7ecf3";
             g.font = "500 13px system-ui, sans-serif";
@@ -911,10 +967,7 @@
             li.classList.add("spinning");
           } else if (result) {
             li.classList.add("revealed");
-            const nameIndex = allNames.indexOf(result);
-            if (nameIndex >= 0) {
-              nameColor = segmentColor(nameIndex);
-            }
+            nameColor = colorFor(result);
           }
 
           let nameText = "—";
@@ -960,11 +1013,11 @@
           namesListEl.appendChild(li);
           return;
         }
-        allNames.forEach((name, i) => {
+        allNames.forEach(({ name, color }) => {
           const li = document.createElement("li");
           li.className = "name-row";
           li.innerHTML = `
-            <span class="name-dot" style="background:${segmentColor(i)}"></span>
+            <span class="name-dot" style="background:${color}"></span>
             <span class="participant-name">${escapeHtml(name)}</span>
             <button type="button" class="secondary kick-btn" aria-label="Remove ${escapeHtml(name)}" title="Remove">✕</button>
           `;
@@ -984,13 +1037,16 @@
       function addName(raw) {
         const name = raw.trim();
         if (!name) return;
-        if (allNames.some((n) => n.toLowerCase() === name.toLowerCase())) {
+        if (allNames.some((e) => e.name.toLowerCase() === name.toLowerCase())) {
           nameInput.value = "";
           nameInput.focus();
           return;
         }
-        allNames.push(name);
-        pool.push(name);
+        const color = assignColor(name);
+        const entry = { name, color };
+        allNames.push(entry);
+        pool.push(entry);
+        spinsComplete = false;
         nameInput.value = "";
         renderNamesList();
         drawWheel();
@@ -1002,8 +1058,9 @@
 
       function removeName(name) {
         if (spinning) return;
-        allNames = allNames.filter((n) => n !== name);
-        pool = pool.filter((n) => n !== name);
+        allNames = allNames.filter((e) => e.name !== name);
+        pool = pool.filter((e) => e.name !== name);
+        spinsComplete = false;
         renderNamesList();
         drawWheel();
         updateSpinCountOptions();
@@ -1025,7 +1082,7 @@
           spinCountEl.appendChild(opt);
         }
         spinCountEl.value = String(Math.min(prev, max));
-        spinBtn.disabled = allNames.length < 1;
+        updateSpinBtn();
         if (!spinning) {
           spinResults = spinResults.slice(0, max);
           renderSpinResults();
@@ -1059,11 +1116,11 @@
 
         const slice = (Math.PI * 2) / names.length;
 
-        names.forEach((name, i) => {
+        names.forEach((entry, i) => {
+          const { name, color } = entry;
           const start = wheelAngle + i * slice - Math.PI / 2;
           const end = start + slice;
           const mid = start + slice / 2;
-          const color = segmentColor(i);
 
           ctx.beginPath();
           ctx.moveTo(cx, cy);
@@ -1166,7 +1223,7 @@
             } else {
               wheelAngle = endAngle;
               drawWheel(winnerIndex);
-              resolve(names[winnerIndex]);
+              resolve(names[winnerIndex].name);
             }
           }
 
@@ -1177,6 +1234,7 @@
       async function runSpins() {
         if (spinning || pool.length < 1) return;
 
+        spinsComplete = false;
         spinning = true;
         spinBtn.disabled = true;
         addBtn.disabled = true;
@@ -1200,7 +1258,7 @@
           setSpinSlot(s, winner);
 
           if (remove) {
-            workingPool = workingPool.filter((n) => n !== winner);
+            workingPool = workingPool.filter((e) => e.name !== winner);
             pool = workingPool.slice();
             await pause(400);
             drawWheel();
@@ -1213,11 +1271,12 @@
         drawWheel();
 
         spinning = false;
-        spinBtn.disabled = allNames.length < 1;
+        spinsComplete = true;
         addBtn.disabled = false;
         removeWinnersEl.disabled = false;
         spinCountEl.disabled = false;
         updateSpinCountOptions();
+        updateSpinBtn();
         updateResultsActions();
       }
 
@@ -1230,6 +1289,7 @@
         if (e.key === "Enter") addName(nameInput.value);
       });
       spinBtn.addEventListener("click", runSpins);
+      resetBtn.addEventListener("click", resetWheel);
       removeWinnersEl.addEventListener("change", () => {
         if (!removeWinnersEl.checked) pool = allNames.slice();
         updateSpinCountOptions();
@@ -1244,7 +1304,7 @@
       });
       copyLinkBtn.addEventListener("click", async () => {
         const params = new URLSearchParams();
-        if (allNames.length) params.set("names", allNames.join(","));
+        if (allNames.length) params.set("names", allNames.map((e) => e.name).join(","));
         const sc = selectedSpinCount();
         if (sc > 1) params.set("spins", String(sc));
         const qs = params.toString();
