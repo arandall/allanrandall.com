@@ -767,17 +767,19 @@
           ry += 14;
 
           winners.forEach((name, i) => {
-            roundRect(g, leftX, ry, wheelSize, resultRowH, 10, "#1a2332", "#22c55e");
+            const nameIndex = allNames.indexOf(name);
+            const color = nameIndex >= 0 ? segmentColor(nameIndex) : "#22c55e";
+            roundRect(g, leftX, ry, wheelSize, resultRowH, 10, "#1a2332", color);
             g.beginPath();
             g.arc(leftX + 18, ry + resultRowH / 2, 10, 0, Math.PI * 2);
-            g.fillStyle = "#22c55e";
+            g.fillStyle = color;
             g.fill();
             g.fillStyle = "#ffffff";
             g.font = "700 10px system-ui, sans-serif";
             g.textAlign = "center";
             g.textBaseline = "middle";
             g.fillText(String(i + 1), leftX + 18, ry + resultRowH / 2);
-            g.fillStyle = "#e7ecf3";
+            g.fillStyle = color;
             g.font = "600 14px system-ui, sans-serif";
             g.textAlign = "left";
             g.fillText(name, leftX + 36, ry + resultRowH / 2);
@@ -878,8 +880,17 @@
           const result = spinResults[i];
           const li = document.createElement("li");
           li.className = "spin-result-row";
-          if (result === "spinning") li.classList.add("spinning");
-          else if (result) li.classList.add("revealed");
+          let nameColor = "";
+
+          if (result === "spinning") {
+            li.classList.add("spinning");
+          } else if (result) {
+            li.classList.add("revealed");
+            const nameIndex = allNames.indexOf(result);
+            if (nameIndex >= 0) {
+              nameColor = segmentColor(nameIndex);
+            }
+          }
 
           let nameText = "—";
           let nameClass = "spin-name placeholder";
@@ -890,10 +901,21 @@
             nameClass = "spin-name";
           }
 
+          const orderStyle = nameColor
+            ? `background:${nameColor};color:white`
+            : "";
+          const nameStyle = nameColor ? `color:${nameColor}` : "";
+
           li.innerHTML = `
-            <span class="spin-order">${i + 1}</span>
-            <span class="${nameClass}">${result && result !== "spinning" ? escapeHtml(result) : nameText}</span>
+            <span class="spin-order" style="${orderStyle}">${i + 1}</span>
+            <span class="${nameClass}" style="${nameStyle}">${result && result !== "spinning" ? escapeHtml(result) : nameText}</span>
           `;
+
+          if (nameColor) {
+            li.style.borderColor = nameColor;
+            li.style.boxShadow = `0 0 16px ${nameColor}33`;
+          }
+
           spinResultsEl.appendChild(li);
         }
         updateResultsActions();

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Allan Randall</title>
-		<link>https://allanrandall.com/</link>
+		<link>http://localhost:1313/</link>
 		<description>Recent content on Allan Randall</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,19 +12,19 @@
 		
 			<lastBuildDate>Wed, 23 Feb 2022 20:38:00 +1100</lastBuildDate>
 		
-			<atom:link href="https://allanrandall.com/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Detecting COVID-19 and Pneumonia Using Transfer Learning</title>
-				<link>https://allanrandall.com/posts/covid/</link>
+				<link>http://localhost:1313/posts/covid/</link>
 				<pubDate>Wed, 23 Feb 2022 20:38:00 +1100</pubDate>
-				<guid>https://allanrandall.com/posts/covid/</guid>
+				<guid>http://localhost:1313/posts/covid/</guid>
 				<description>&lt;p&gt;This post is an explanation on how I derived my solution to Project 3: Train and Deploy a Radiology AI from &lt;a href=&#34;https://opencv.org/course-computer-vision-two/&#34;&gt;Computer Vision 2&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;Given a pre-labeled dataset of images train a model that can predict the following with &amp;gt;95% accuracy.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Normal&lt;/li&gt;&#xA;&lt;li&gt;Pneumonia&lt;/li&gt;&#xA;&lt;li&gt;COVID19&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;initial-changes-made-to-radiologyai-notebook&#34;&gt;Initial changes made to RadiologyAI notebook&lt;/h2&gt;&#xA;&lt;p&gt;The provided notebook required a number of changes before I was able to move to defining a trainable model. The main reason for this was the original notebook was a binary classification problem detecting lungs that were either normal or suffering from pneumonia.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Finding a Celebrate Look Alike with OpenCV</title>
-				<link>https://allanrandall.com/posts/doppel/</link>
+				<link>http://localhost:1313/posts/doppel/</link>
 				<pubDate>Sat, 08 Jan 2022 16:55:07 +1100</pubDate>
-				<guid>https://allanrandall.com/posts/doppel/</guid>
+				<guid>http://localhost:1313/posts/doppel/</guid>
 				<description>&lt;p&gt;This post explains my approach to solving the &lt;a href=&#34;https://opencv.org/course-computer-vision-two/&#34;&gt;Computer Vision 2&lt;/a&gt; Find Celebrity Look-Alike project.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Your Task&lt;/p&gt;&#xA;&lt;p&gt;In this project, we will build a Fun Application - We will use the Face Embeddings to find a doppelganger or look-alike to a given person. Specifically, we will give you images of two persons and a celebrity dataset. Your task will be to find their celebrity look-alike.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ndash; Computer Vision 2 / Project 2: DoppelGanger - Find Celebrity Look-Alike&lt;/p&gt;</description>
 			</item>
 	</channel>
