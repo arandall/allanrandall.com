@@ -396,10 +396,13 @@
         outline-offset: 1px;
       }
 
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
+      .copy-link-btn-sm {
+        flex: 0 0 auto;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        line-height: 1;
+        min-width: auto;
+        white-space: nowrap;
       }
 
       button {
@@ -432,8 +435,9 @@
       }
 
       #spin-btn {
-        flex: 1;
-        min-width: 8rem;
+        width: min(100%, 380px);
+        display: block;
+        margin: 1.75rem auto 0;
         font-size: 1.05rem;
         padding: 0.8rem 1.25rem;
       }
@@ -470,6 +474,14 @@
         font-size: 0.8rem;
         color: var(--muted);
         word-break: break-all;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .copy-hint-text {
+        flex: 1;
+        min-width: 0;
       }
 
       .copy-hint code {
@@ -478,6 +490,7 @@
         background: var(--surface2);
         padding: 0.15rem 0.4rem;
         border-radius: 4px;
+        word-break: break-all;
       }
     </style>
   </head>
@@ -495,6 +508,7 @@
             <div class="wheel-ring" aria-hidden="true"></div>
             <canvas id="wheel-canvas" width="760" height="760" role="img" aria-label="Spinning wheel"></canvas>
           </div>
+          <button type="button" id="spin-btn">Spin</button>
           <div class="results-block">
             <h2>Results</h2>
             <ul class="spin-results" id="spin-results" aria-live="polite"></ul>
@@ -529,7 +543,7 @@
             <select id="spin-count"></select>
           </div>
           <label class="toggle-switch" for="remove-winners">
-            <input type="checkbox" id="remove-winners" />
+            <input type="checkbox" id="remove-winners" checked="checked"/>
             <span class="toggle-track" aria-hidden="true"></span>
             <span class="toggle-copy">
               <span class="toggle-title">Remove winners after each spin</span>
@@ -537,14 +551,13 @@
             </span>
           </label>
         </div>
-        <div class="actions">
-          <button type="button" id="spin-btn">Spin</button>
-          <button type="button" id="copy-link-btn" class="secondary">Copy link</button>
+        <div class="copy-hint">
+          <span class="copy-hint-text">
+            Share this page with names in the URL:
+            <code id="share-url"></code>
+          </span>
+          <button type="button" id="copy-link-btn" class="secondary copy-link-btn-sm">Copy link</button>
         </div>
-        <p class="copy-hint">
-          Share this page with names in the URL:
-          <code id="share-url"></code>
-        </p>
       </div>
 
     </div>
@@ -596,12 +609,24 @@
           .filter((n, i, arr) => arr.indexOf(n) === i);
       }
 
+      function parseSpinsFromUrl() {
+        const raw = new URLSearchParams(location.search).get("spins");
+        const num = parseInt(raw, 10);
+        return Number.isFinite(num) && num >= 1 ? num : 0;
+      }
+
       function syncUrl() {
         const url = new URL(location.href);
         if (allNames.length) {
           url.searchParams.set("names", allNames.join(","));
         } else {
           url.searchParams.delete("names");
+        }
+        const sc = selectedSpinCount();
+        if (sc > 1) {
+          url.searchParams.set("spins", String(sc));
+        } else {
+          url.searchParams.delete("spins");
         }
         history.replaceState(null, "", url);
         shareUrlEl.textContent = url.pathname + url.search;
@@ -1214,10 +1239,16 @@
         if (!spinning) {
           spinResults = [];
           renderSpinResults();
+          syncUrl();
         }
       });
       copyLinkBtn.addEventListener("click", async () => {
-        const url = location.origin + location.pathname + (allNames.length ? `?names=${encodeURIComponent(allNames.join(","))}` : "");
+        const params = new URLSearchParams();
+        if (allNames.length) params.set("names", allNames.join(","));
+        const sc = selectedSpinCount();
+        if (sc > 1) params.set("spins", String(sc));
+        const qs = params.toString();
+        const url = location.origin + location.pathname + (qs ? `?${qs}` : "");
         try {
           await navigator.clipboard.writeText(url);
           const prev = copyLinkBtn.textContent;
@@ -1235,6 +1266,11 @@
       window.addEventListener("resize", () => drawWheel());
 
       setNames(parseNamesFromUrl());
+      const urlSpins = parseSpinsFromUrl();
+      if (urlSpins > 0) {
+        spinCountEl.value = String(Math.min(urlSpins, allNames.length || 20));
+        syncUrl();
+      }
       shareUrlEl.textContent = location.pathname + location.search;
     </script>
   </body>
