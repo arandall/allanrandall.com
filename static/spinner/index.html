@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spinner</title>
+    <title>Spin the Wheel</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BR3BLS2S8"></script>
     <script>
       var doNotTrack = false;
@@ -410,13 +410,15 @@
         outline-offset: 1px;
       }
 
-      .copy-link-btn-sm {
+      .copy-link-btn-icon {
         flex: 0 0 auto;
-        font-size: 0.75rem;
-        padding: 0.3rem 0.6rem;
-        line-height: 1;
-        min-width: auto;
-        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: 0;
+        border-radius: 4px;
       }
 
       button {
@@ -498,24 +500,37 @@
         border-top: 1px solid var(--border);
         font-size: 0.8rem;
         color: var(--muted);
-        word-break: break-all;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
       }
 
       .copy-hint-text {
-        flex: 1;
-        min-width: 0;
+        width: 100%;
       }
 
       .copy-hint code {
+        display: flex;
+        align-items: center;
+        margin-top: 0.35rem;
         font-size: 0.78rem;
         color: var(--text);
         background: var(--surface2);
-        padding: 0.15rem 0.4rem;
+        padding: 0.35rem 0.5rem;
         border-radius: 4px;
-        word-break: break-all;
+        cursor: pointer;
+        transition: background 0.15s;
+        gap: 0.5rem;
+      }
+
+      .copy-hint code:hover {
+        background: #2d3d56;
+      }
+
+      .share-url-text {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        user-select: all;
       }
 
       .preset-grid {
@@ -550,7 +565,7 @@
   <body>
     <div class="app">
       <header>
-        <h1>Spinner</h1>
+        <h1>Spin the Wheel</h1>
         <p>Feeling lucky? Spin the wheel to pick a name!</p>
       </header>
 
@@ -576,7 +591,7 @@
         </div>
 
         <div class="panel participants-panel">
-          <h2>Participants</h2>
+          <h2>Choices</h2>
           <ul class="names-list" id="names-list"></ul>
           <div class="add-name-row">
             <input
@@ -602,26 +617,25 @@
             <input type="checkbox" id="remove-winners" checked="checked"/>
             <span class="toggle-track" aria-hidden="true"></span>
             <span class="toggle-copy">
-              <span class="toggle-title">Remove winners after each spin</span>
-              <span class="toggle-hint">Limits spins to the number of names</span>
+              <span class="toggle-title">Remove choice after each spin</span>
+              <span class="toggle-hint">Limits spins to the number of choices</span>
             </span>
           </label>
         </div>
         <div class="copy-hint">
-          <span class="copy-hint-text">
-            Share this page with names in the URL:
-            <code id="share-url"></code>
-          </span>
-          <button type="button" id="copy-link-btn" class="secondary copy-link-btn-sm">Copy link</button>
+          <div class="copy-hint-text">
+            <div>Share this page with choices in the URL:</div>
+            <code id="share-url" class="share-url-click"><span class="share-url-text"></span><button type="button" id="copy-link-btn" class="secondary copy-link-btn-icon" title="Copy link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></code>
+          </div>
         </div>
       </div>
 
       <div class="panel">
         <h2>Presets</h2>
         <div class="preset-grid">
-          <a class="preset-btn" href="?names=Heads,Tails&amp;keepwinners=1">Coin Toss</a>
-          <a class="preset-btn" href="?names=Rock,Paper,Scissors&amp;keepwinners=1">Rock Paper Scissors</a>
-          <a class="preset-btn" href="?names=It%20is%20certain,It%20is%20decidedly%20so,Without%20a%20doubt,Yes%20definitely,You%20may%20rely%20on%20it,As%20I%20see%20it%5C%2C%20yes,Most%20likely,Outlook%20good,Yes,Signs%20point%20to%20yes,Reply%20hazy%5C%2C%20try%20again,Ask%20again%20later,Better%20not%20tell%20you%20now,Cannot%20predict%20now,Concentrate%20and%20ask%20again,Don%27t%20count%20on%20it,My%20reply%20is%20no,My%20sources%20say%20no,Outlook%20not%20so%20good,Very%20doubtful&amp;keepwinners=1">Magic 8 Ball</a>
+          <a class="preset-btn" href="?choices=Heads,Tails&amp;keepwinners=1">Coin Toss</a>
+          <a class="preset-btn" href="?choices=Rock,Paper,Scissors&amp;keepwinners=1">Rock Paper Scissors</a>
+          <a class="preset-btn" href="?choices=It%20is%20certain,It%20is%20decidedly%20so,Without%20a%20doubt,Yes%20definitely,You%20may%20rely%20on%20it,As%20I%20see%20it%5C%2C%20yes,Most%20likely,Outlook%20good,Yes,Signs%20point%20to%20yes,Reply%20hazy%5C%2C%20try%20again,Ask%20again%20later,Better%20not%20tell%20you%20now,Cannot%20predict%20now,Concentrate%20and%20ask%20again,Don%27t%20count%20on%20it,My%20reply%20is%20no,My%20sources%20say%20no,Outlook%20not%20so%20good,Very%20doubtful&amp;keepwinners=1">Magic 8 Ball</a>
         </div>
       </div>
 
@@ -657,6 +671,7 @@
       const copyResultsBtn = document.getElementById("copy-results-btn");
       const copyImageBtn = document.getElementById("copy-image-btn");
       const shareUrlEl = document.getElementById("share-url");
+      const shareUrlTextEl = shareUrlEl.querySelector(".share-url-text");
 
       let allNames = [];
       let pool = [];
@@ -669,7 +684,8 @@
       let nameColorMap = {};
 
       function parseNamesFromUrl() {
-        const raw = new URLSearchParams(location.search).get("names");
+        const params = new URLSearchParams(location.search);
+        const raw = params.get("choices") || params.get("names");
         if (!raw) return [];
         return splitNames(raw)
           .map((n) => n.trim())
@@ -711,10 +727,11 @@
       function syncUrl() {
         const url = new URL(location.href);
         if (allNames.length) {
-          url.searchParams.set("names", allNames.map((e) => escapeNameForUrl(e.name)).join(","));
+          url.searchParams.set("choices", allNames.map((e) => escapeNameForUrl(e.name)).join(","));
         } else {
-          url.searchParams.delete("names");
+          url.searchParams.delete("choices");
         }
+        url.searchParams.delete("names");
         const sc = selectedSpinCount();
         if (sc > 1) {
           url.searchParams.set("spins", String(sc));
@@ -727,7 +744,7 @@
           url.searchParams.delete("keepwinners");
         }
         history.replaceState(null, "", url);
-        shareUrlEl.textContent = url.pathname + url.search;
+        shareUrlTextEl.textContent = url.pathname + url.search;
       }
 
       function assignColor(name) {
@@ -809,7 +826,7 @@
         const winners = getCompletedResults();
         const lines = ["Spinner Results", ""];
         if (allNames.length) {
-          lines.push(`Participants: ${allNames.map((e) => e.name).join(", ")}`);
+          lines.push(`Choices: ${allNames.map((e) => e.name).join(", ")}`);
           lines.push("");
         }
         winners.forEach((name, i) => lines.push(`${i + 1}. ${name}`));
@@ -888,7 +905,7 @@
         g.font = "700 22px system-ui, -apple-system, sans-serif";
         g.textAlign = "center";
         g.textBaseline = "middle";
-        g.fillText("Spinner", width / 2, pad + 14);
+        g.fillText("Spin the Wheel", width / 2, pad + 14);
 
         g.fillStyle = "#8b9cb3";
         g.font = "400 13px system-ui, -apple-system, sans-serif";
@@ -956,13 +973,13 @@
         g.font = "600 10px system-ui, sans-serif";
         g.textAlign = "left";
         g.textBaseline = "alphabetic";
-        g.fillText("PARTICIPANTS", panelX + 14, topY + 22);
+        g.fillText("CHOICES", panelX + 14, topY + 22);
 
         let ny = topY + 36;
         if (!allNames.length) {
           g.fillStyle = "#8b9cb3";
           g.font = "400 13px system-ui, sans-serif";
-          g.fillText("No participants", panelX + 14, ny + 10);
+          g.fillText("No choices", panelX + 14, ny + 10);
         } else {
           allNames.forEach(({ name, color }) => {
             g.beginPath();
@@ -1383,9 +1400,10 @@
           syncUrl();
         }
       });
-      copyLinkBtn.addEventListener("click", async () => {
+      copyLinkBtn.addEventListener("click", async (e) => {
+        e.stopPropagation();
         const params = new URLSearchParams();
-        if (allNames.length) params.set("names", allNames.map((e) => escapeNameForUrl(e.name)).join(","));
+        if (allNames.length) params.set("choices", allNames.map((e) => escapeNameForUrl(e.name)).join(","));
         const sc = selectedSpinCount();
         if (sc > 1) params.set("spins", String(sc));
         if (!removeWinnersEl.checked) params.set("keepwinners", "1");
@@ -1393,14 +1411,24 @@
         const url = location.origin + location.pathname + (qs ? `?${qs}` : "");
         try {
           await navigator.clipboard.writeText(url);
-          const prev = copyLinkBtn.textContent;
-          copyLinkBtn.textContent = "Copied!";
+          const svg = copyLinkBtn.innerHTML;
+          copyLinkBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
           setTimeout(() => {
-            copyLinkBtn.textContent = prev;
+            copyLinkBtn.innerHTML = svg;
           }, 1500);
-        } catch {
-          copyLinkBtn.textContent = "Copy failed";
-        }
+        } catch {}
+      });
+      shareUrlEl.addEventListener("click", async () => {
+        const text = shareUrlTextEl.textContent;
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(location.origin + text);
+          const prev = shareUrlTextEl.textContent;
+          shareUrlTextEl.textContent = "Copied!";
+          setTimeout(() => {
+            shareUrlTextEl.textContent = prev;
+          }, 1500);
+        } catch {}
       });
       copyResultsBtn.addEventListener("click", copyResultsText);
       copyImageBtn.addEventListener("click", copyResultsImage);
@@ -1421,7 +1449,7 @@
         updateSpinCountOptions();
       }
       syncUrl();
-      shareUrlEl.textContent = location.pathname + location.search;
+      shareUrlTextEl.textContent = location.pathname + location.search;
     </script>
   </body>
 </html>
