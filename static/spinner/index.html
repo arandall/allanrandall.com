@@ -634,11 +634,35 @@
       function parseNamesFromUrl() {
         const raw = new URLSearchParams(location.search).get("names");
         if (!raw) return [];
-        return raw
-          .split(",")
+        return splitNames(raw)
           .map((n) => n.trim())
           .filter(Boolean)
           .filter((n, i, arr) => arr.indexOf(n) === i);
+      }
+
+      function splitNames(str) {
+        const result = [];
+        let current = "";
+        let i = 0;
+        while (i < str.length) {
+          if (str[i] === "\\" && i + 1 < str.length && str[i + 1] === ",") {
+            current += ",";
+            i += 2;
+          } else if (str[i] === ",") {
+            result.push(current);
+            current = "";
+            i++;
+          } else {
+            current += str[i];
+            i++;
+          }
+        }
+        result.push(current);
+        return result;
+      }
+
+      function escapeNameForUrl(name) {
+        return name.replace(/,/g, "\\,");
       }
 
       function parseSpinsFromUrl() {
@@ -650,7 +674,7 @@
       function syncUrl() {
         const url = new URL(location.href);
         if (allNames.length) {
-          url.searchParams.set("names", allNames.map((e) => e.name).join(","));
+          url.searchParams.set("names", allNames.map((e) => escapeNameForUrl(e.name)).join(","));
         } else {
           url.searchParams.delete("names");
         }
@@ -1324,7 +1348,7 @@
       });
       copyLinkBtn.addEventListener("click", async () => {
         const params = new URLSearchParams();
-        if (allNames.length) params.set("names", allNames.map((e) => e.name).join(","));
+        if (allNames.length) params.set("names", allNames.map((e) => escapeNameForUrl(e.name)).join(","));
         const sc = selectedSpinCount();
         if (sc > 1) params.set("spins", String(sc));
         if (!removeWinnersEl.checked) params.set("keepwinners", "1");
