@@ -517,6 +517,34 @@
         border-radius: 4px;
         word-break: break-all;
       }
+
+      .preset-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        gap: 0.75rem;
+      }
+
+      .preset-btn {
+        display: block;
+        padding: 1rem 1.25rem;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        color: var(--text);
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+      }
+
+      .preset-btn:hover {
+        background: #2d3d56;
+        border-color: var(--accent);
+        box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
+      }
     </style>
   </head>
   <body>
@@ -585,6 +613,15 @@
             <code id="share-url"></code>
           </span>
           <button type="button" id="copy-link-btn" class="secondary copy-link-btn-sm">Copy link</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Presets</h2>
+        <div class="preset-grid">
+          <a class="preset-btn" href="?names=Heads,Tails&amp;keepwinners=1">Coin Toss</a>
+          <a class="preset-btn" href="?names=Rock,Paper,Scissors&amp;keepwinners=1">Rock Paper Scissors</a>
+          <a class="preset-btn" href="?names=It%20is%20certain,It%20is%20decidedly%20so,Without%20a%20doubt,Yes%20definitely,You%20may%20rely%20on%20it,As%20I%20see%20it%5C%2C%20yes,Most%20likely,Outlook%20good,Yes,Signs%20point%20to%20yes,Reply%20hazy%5C%2C%20try%20again,Ask%20again%20later,Better%20not%20tell%20you%20now,Cannot%20predict%20now,Concentrate%20and%20ask%20again,Don%27t%20count%20on%20it,My%20reply%20is%20no,My%20sources%20say%20no,Outlook%20not%20so%20good,Very%20doubtful&amp;keepwinners=1">Magic 8 Ball</a>
         </div>
       </div>
 
