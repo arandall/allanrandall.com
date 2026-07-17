@@ -1448,10 +1448,13 @@
       if (urlKeepWinners === "1") {
         removeWinnersEl.checked = false;
       }
-      setNames(parseNamesFromUrl());
       const urlSpins = parseSpinsFromUrl();
+      setNames(parseNamesFromUrl());
       if (urlSpins > 0) {
-        spinCountEl.value = String(Math.min(urlSpins, allNames.length || 20));
+        const max = removeWinnersEl.checked
+          ? Math.max(1, allNames.length)
+          : 20;
+        spinCountEl.value = String(Math.min(urlSpins, max));
         syncUrl();
       }
       if (urlKeepWinners === "1") {
