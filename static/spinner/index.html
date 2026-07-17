@@ -660,6 +660,11 @@
         } else {
           url.searchParams.delete("spins");
         }
+        if (!removeWinnersEl.checked) {
+          url.searchParams.set("keepwinners", "1");
+        } else {
+          url.searchParams.delete("keepwinners");
+        }
         history.replaceState(null, "", url);
         shareUrlEl.textContent = url.pathname + url.search;
       }
@@ -1308,6 +1313,7 @@
         if (!removeWinnersEl.checked) pool = allNames.slice();
         updateSpinCountOptions();
         drawWheel();
+        syncUrl();
       });
       spinCountEl.addEventListener("change", () => {
         if (!spinning) {
@@ -1321,6 +1327,7 @@
         if (allNames.length) params.set("names", allNames.map((e) => e.name).join(","));
         const sc = selectedSpinCount();
         if (sc > 1) params.set("spins", String(sc));
+        if (!removeWinnersEl.checked) params.set("keepwinners", "1");
         const qs = params.toString();
         const url = location.origin + location.pathname + (qs ? `?${qs}` : "");
         try {
@@ -1339,12 +1346,20 @@
 
       window.addEventListener("resize", () => drawWheel());
 
+      const urlKeepWinners = new URLSearchParams(location.search).get("keepwinners");
+      if (urlKeepWinners === "1") {
+        removeWinnersEl.checked = false;
+      }
       setNames(parseNamesFromUrl());
       const urlSpins = parseSpinsFromUrl();
       if (urlSpins > 0) {
         spinCountEl.value = String(Math.min(urlSpins, allNames.length || 20));
         syncUrl();
       }
+      if (urlKeepWinners === "1") {
+        updateSpinCountOptions();
+      }
+      syncUrl();
       shareUrlEl.textContent = location.pathname + location.search;
     </script>
   </body>
