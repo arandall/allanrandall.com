@@ -1455,11 +1455,10 @@
           ? Math.max(1, allNames.length)
           : 20;
         spinCountEl.value = String(Math.min(urlSpins, max));
-        syncUrl();
       }
-      if (urlKeepWinners === "1") {
-        updateSpinCountOptions();
-      }
+      // Always refresh the option list and results list so the UI matches
+      // the spin count selected above (including values loaded from the URL).
+      updateSpinCountOptions();
       syncUrl();
       shareUrlTextEl.textContent = location.pathname + location.search;
     </script>
