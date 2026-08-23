@@ -1,0 +1,28 @@
+docs/categories/index.xml
+  h_e49bc6578e470a 5,13
+docs/index.xml
+  h_e49bc6578e470a 5,15,18,20,25,27
+docs/posts/index.xml
+  h_e49bc6578e470a 5,15,18,20,25,27
+docs/sitemap.xml
+  h_e49bc6578e470a 6,9,12,15,18,21,24
+docs/spinner/index.html
+  h_e49bc6578e470a 1459-1461
+docs/tags/index.xml
+  h_e49bc6578e470a 5,15,18,20
+docs/tags/opencv/index.xml
+  h_e49bc6578e470a 5,15,18,20,25,27
+static/spinner/index.html
+  h_e49bc6578e470a 1459-1461
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "ff3d0570c9a8c32f9de03aab072eb815a45247fb",
+  "prompts": {},
+  "humans": {
+    "h_e49bc6578e470a": {
+      "author": "Allan Randall <me@allanrandall.com>"
+    }
+  }
+}
